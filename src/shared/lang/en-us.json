@@ -1,0 +1,161 @@
+{
+  "SEO": {
+    "title": "Yolanda Farnese | Tattoo Artist",
+    "description": "Tattoo artist in Uberlandia - MG. Fine Line and Blackwork. Your imagination is my inspiration.",
+    "keywords": "Yolanda Farnese, tattoo artist, fine line, blackwork, Uberlandia",
+    "pages": {
+      "home": {
+        "title": "Yolanda Farnese | Tattoo Artist in Uberlandia",
+        "description": "Explore the initial portfolio scaffold, understand the Fine Line and Blackwork direction, and start a WhatsApp-first contact flow."
+      },
+      "about": {
+        "title": "About | Yolanda Farnese",
+        "description": "Meet Yolanda Farnese, tattoo artist based in Uberlandia - MG with a Fine Line and Blackwork focus."
+      },
+      "procedures": {
+        "title": "Portfolio and Styles | Yolanda Farnese",
+        "description": "Browse the initial style and portfolio page scaffold that will be populated from Prismic."
+      },
+      "contact": {
+        "title": "Contact | Yolanda Farnese",
+        "description": "Reach Yolanda through WhatsApp and use Instagram and location context as supporting contact paths."
+      },
+      "privacy_policy": {
+        "title": "Privacy Policy | Yolanda Farnese",
+        "description": "Read the initial privacy and data handling policy for the Yolanda Farnese website."
+      }
+    }
+  },
+  "common": {
+    "learn_more": "Learn more",
+    "back_home": "Back home",
+    "back_to_procedures": "Back to portfolio"
+  },
+  "header": {
+    "brand_name": "Yolanda Farnese 🦇",
+    "tagline": "Tattoo Artist - Fine Line & Blackwork",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "procedures": "Portfolio",
+      "contact": "Contact"
+    },
+    "primary_cta": "Message on WhatsApp",
+    "menu_open_label": "Open menu",
+    "menu_close_label": "Close menu",
+    "language_label": "Language",
+    "theme": {
+      "label": "Theme",
+      "light_label": "Light",
+      "dark_label": "Dark"
+    }
+  },
+  "footer": {
+    "copyright": "©2026 Yolanda Farnese. All rights reserved.",
+    "note": "Fine Line, Blackwork, and direct booking-oriented contact for tattoo ideas that need a clear artistic voice.",
+    "links": {
+      "instagram": "Instagram",
+      "location": "Location",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "eyebrow": "Tattoo Artist in Uberlandia - MG",
+        "title": "Your imagination is my inspiration.",
+        "description": "Fine Line and Blackwork for people looking for tattoos with a clear visual identity, precise linework, and direct quote conversations.",
+        "primary_cta": "Message on WhatsApp",
+        "secondary_cta": "View portfolio"
+      },
+      "trust": {
+        "title": "Signature and context",
+        "bullets": [
+          "Fine Line and Blackwork as the main focus",
+          "Based in Uberlandia - MG",
+          "Active portfolio and direct WhatsApp contact"
+        ]
+      },
+      "featured_procedures": {
+        "title": "Initial styles and highlights",
+        "description": "These pages work as content scaffolding until final editorial copy and galleries are published in Prismic.",
+        "details_cta": "Open page"
+      },
+      "contact_strip": {
+        "title": "Ready to move your idea forward?",
+        "description": "Send references, preferred style, and questions through WhatsApp. Instagram and location stay available as trust-building support paths.",
+        "whatsapp_label": "Quote on WhatsApp",
+        "instagram_label": "Instagram",
+        "location_label": "Location"
+      }
+    },
+    "about": {
+      "title": "About Yolanda Farnese",
+      "intro": "Yolanda Farnese is a tattoo artist based in Uberlandia - MG. Her work starts where the client's reference meets her artistic reading, with a Fine Line and Blackwork focus.",
+      "story": [
+        "The goal of this site is to create a clear base for portfolio, style, and editorial pages without unsupported claims or filler content.",
+        "The structure is already prepared to receive galleries, descriptions, and Prismic-managed pages without changing the public navigation."
+      ],
+      "highlights": [
+        "Fine Line",
+        "Blackwork",
+        "Lettering and symbols"
+      ],
+      "cta_label": "Message on WhatsApp"
+    },
+    "procedures": {
+      "title": "Portfolio and styles",
+      "intro": "Browse the initial style and portfolio grouping scaffold. Final descriptions, galleries, and editorial variants will be published from Prismic.",
+      "category_label": "Category",
+      "booking_cta": "Request quote",
+      "empty_state": "Styles will appear here as soon as content is published."
+    },
+    "procedure_detail": {
+      "category_label": "Category",
+      "booking_cta": "Request quote",
+      "not_found_title": "Page not found",
+      "not_found_description": "This content is not available yet. Return to the listing or contact Yolanda directly.",
+      "gallery_title": "Reference gallery",
+      "gallery_empty_state": "The gallery will be published through Prismic. This structure already accepts media without leaking raw CMS shapes into the UI."
+    },
+    "contact": {
+      "title": "Contact and quote",
+      "intro": "Send a short message and open WhatsApp with the text pre-filled. Instagram and location links remain available as secondary actions.",
+      "form": {
+        "name_label": "Your name",
+        "business_type_label": "Idea, style, or reference",
+        "description_label": "Message",
+        "submit_label": "Send on WhatsApp",
+        "whatsapp_message_template": "Hello, Yolanda! I came through your website. My name is {name} and I want to talk about {projectType}. {description}"
+      },
+      "channels_title": "Other contact paths",
+      "channels_intro": "Use the channel that makes the most sense for what you need right now.",
+      "whatsapp_label": "Open WhatsApp",
+      "instagram_label": "Open Instagram",
+      "location_label": "Open location"
+    },
+    "privacy_policy": {
+      "title": "Privacy Policy",
+      "intro": "This is an initial placeholder policy until the final legal copy is approved.",
+      "sections": [
+        {
+          "title": "Collected data",
+          "body": "The website may process the data you voluntarily share through the WhatsApp-first contact flow."
+        },
+        {
+          "title": "Usage",
+          "body": "Data is used only to answer quote requests, contact messages, and portfolio-related inquiries."
+        },
+        {
+          "title": "Updates",
+          "body": "This policy will be revised when final business, analytics, and CMS flows are confirmed."
+        }
+      ]
+    }
+  },
+  "under_construction": {
+    "title": "This page is under construction",
+    "description": "We are preparing this content. Use Home, Portfolio, About, or Contact for now.",
+    "back_home_label": "Back to home"
+  }
+}

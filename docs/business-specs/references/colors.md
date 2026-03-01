@@ -1,0 +1,1 @@
+tons of black, grey, white and read for buttons, texts and cards

@@ -1,0 +1,161 @@
+{
+  "SEO": {
+    "title": "Yolanda Farnese | Tattoo Artist",
+    "description": "Tatuadora em Uberlândia - MG. Fine Line e Blackwork. A sua imaginação é a minha inspiração.",
+    "keywords": "Yolanda Farnese, tattoo artist, tatuadora, fine line, blackwork, Uberlândia",
+    "pages": {
+      "home": {
+        "title": "Yolanda Farnese | Tattoo Artist em Uberlândia",
+        "description": "Conheça o portfolio inicial, entenda a assinatura Fine Line e Blackwork e inicie um contato direto pelo WhatsApp."
+      },
+      "about": {
+        "title": "Sobre | Yolanda Farnese",
+        "description": "Conheça a abordagem artística da Yolanda Farnese, Tattoo Artist em Uberlândia - MG."
+      },
+      "procedures": {
+        "title": "Portfolio e Estilos | Yolanda Farnese",
+        "description": "Explore a estrutura inicial de estilos e páginas de portfolio que serão abastecidas via Prismic."
+      },
+      "contact": {
+        "title": "Contato | Yolanda Farnese",
+        "description": "Fale com a Yolanda pelo WhatsApp e use Instagram e localização como canais de apoio."
+      },
+      "privacy_policy": {
+        "title": "Política de Privacidade | Yolanda Farnese",
+        "description": "Leia a política inicial de privacidade e tratamento de dados do site da Yolanda Farnese."
+      }
+    }
+  },
+  "common": {
+    "learn_more": "Saiba mais",
+    "back_home": "Voltar ao início",
+    "back_to_procedures": "Voltar para o portfolio"
+  },
+  "header": {
+    "brand_name": "Yolanda Farnese 🦇",
+    "tagline": "Tattoo Artist - Fine Line & Blackwork",
+    "navigation": {
+      "home": "Início",
+      "about": "Sobre",
+      "procedures": "Portfolio",
+      "contact": "Contato"
+    },
+    "primary_cta": "Chamar no WhatsApp",
+    "menu_open_label": "Abrir menu",
+    "menu_close_label": "Fechar menu",
+    "language_label": "Idioma",
+    "theme": {
+      "label": "Tema",
+      "light_label": "Claro",
+      "dark_label": "Escuro"
+    }
+  },
+  "footer": {
+    "copyright": "©2026 Yolanda Farnese. Todos os direitos reservados.",
+    "note": "Fine Line, Blackwork e atendimento direto para transformar referências em tatuagens com identidade visual.",
+    "links": {
+      "instagram": "Instagram",
+      "location": "Localização",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero": {
+        "eyebrow": "Tattoo Artist em Uberlândia - MG",
+        "title": "A sua imaginação é a minha inspiração.",
+        "description": "Fine Line e Blackwork para quem procura tatuagens com leitura autoral, traço preciso e contato direto para orçamentos.",
+        "primary_cta": "Chamar no WhatsApp",
+        "secondary_cta": "Ver portfolio"
+      },
+      "trust": {
+        "title": "Assinatura e contexto",
+        "bullets": [
+          "Fine Line e Blackwork como foco principal",
+          "Atendimento em Uberlândia - MG",
+          "Portfolio ativo e contato direto pelo WhatsApp"
+        ]
+      },
+      "featured_procedures": {
+        "title": "Estilos e destaques iniciais",
+        "description": "Estas páginas funcionam como scaffold de conteúdo até a publicação final via Prismic, preservando rotas, SEO e CTA principal.",
+        "details_cta": "Abrir página"
+      },
+      "contact_strip": {
+        "title": "Pronta para tirar a ideia do papel?",
+        "description": "Envie referências, estilo desejado e dúvidas pelo WhatsApp. Instagram e localização entram como apoio para confiança e contexto.",
+        "whatsapp_label": "Orçamento no WhatsApp",
+        "instagram_label": "Instagram",
+        "location_label": "Localização"
+      }
+    },
+    "about": {
+      "title": "Sobre Yolanda Farnese",
+      "intro": "Sou Yolanda Farnese, Tattoo Artist em Uberlândia - MG. Meu trabalho parte do encontro entre a sua referência e a minha leitura artística, com foco em Fine Line e Blackwork.",
+      "story": [
+        "O objetivo deste site é dar uma base clara para portfolio, estilos e páginas de conteúdo sem depender de promessas vazias ou informações não confirmadas.",
+        "A estrutura já está preparada para receber galerias, descrições e páginas gerenciadas no Prismic sem mudar a navegação pública."
+      ],
+      "highlights": [
+        "Fine Line",
+        "Blackwork",
+        "Lettering e símbolos"
+      ],
+      "cta_label": "Falar no WhatsApp"
+    },
+    "procedures": {
+      "title": "Portfolio e estilos",
+      "intro": "Explore a estrutura inicial dos estilos e agrupamentos de portfolio. As descrições finais, galerias e variações editoriais serão publicadas via Prismic.",
+      "category_label": "Categoria",
+      "booking_cta": "Pedir orçamento",
+      "empty_state": "Os estilos aparecerão aqui assim que o conteúdo for publicado."
+    },
+    "procedure_detail": {
+      "category_label": "Categoria",
+      "booking_cta": "Pedir orçamento",
+      "not_found_title": "Página não encontrada",
+      "not_found_description": "Este conteúdo ainda não está disponível. Volte para a listagem ou fale com a Yolanda diretamente.",
+      "gallery_title": "Galeria de referência",
+      "gallery_empty_state": "A galeria será publicada via Prismic. Esta estrutura já aceita mídia sem expor o formato cru do CMS para a interface."
+    },
+    "contact": {
+      "title": "Contato e orçamento",
+      "intro": "Envie uma mensagem curta e abra o WhatsApp com o texto preenchido. Instagram e localização ficam como caminhos secundários de apoio.",
+      "form": {
+        "name_label": "Seu nome",
+        "business_type_label": "Ideia, estilo ou referência",
+        "description_label": "Mensagem",
+        "submit_label": "Enviar no WhatsApp",
+        "whatsapp_message_template": "Olá, Yolanda! Vim através do seu site. Meu nome é {name} e quero conversar sobre {projectType}. {description}"
+      },
+      "channels_title": "Outros caminhos de contato",
+      "channels_intro": "Use o canal que fizer mais sentido para o que você precisa agora.",
+      "whatsapp_label": "Abrir WhatsApp",
+      "instagram_label": "Abrir Instagram",
+      "location_label": "Abrir localização"
+    },
+    "privacy_policy": {
+      "title": "Política de Privacidade",
+      "intro": "Esta é uma política inicial e temporária até a aprovação do texto legal definitivo.",
+      "sections": [
+        {
+          "title": "Dados coletados",
+          "body": "O site pode processar apenas os dados que você compartilha voluntariamente ao iniciar o contato via WhatsApp."
+        },
+        {
+          "title": "Uso das informações",
+          "body": "As informações são utilizadas somente para responder dúvidas, pedidos de orçamento e interesse em conteúdos do portfolio."
+        },
+        {
+          "title": "Atualizações",
+          "body": "Esta política será revisada quando os fluxos finais de negócio, analytics e CMS forem confirmados."
+        }
+      ]
+    }
+  },
+  "under_construction": {
+    "title": "Esta página está em construção",
+    "description": "Estamos preparando este conteúdo. Use Início, Portfolio, Sobre ou Contato por enquanto.",
+    "back_home_label": "Voltar ao início"
+  }
+}

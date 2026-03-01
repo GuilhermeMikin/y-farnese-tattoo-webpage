@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page-bg: #f4f1ec;
+  --page-text: #121212;
+  --surface: #ffffff;
+  --surface-soft: #eae5de;
+  --surface-card: #f7f4ef;
+  --border-soft: #cfc7be;
+  --text-soft: #49433d;
+  --text-muted: #706860;
+  --brand: #a63a37;
+  --brand-dark: #7c2421;
+  --brand-light: #e4bbb8;
+  color-scheme: light;
+}
+
+:root.dark {
+  --page-bg: #060606;
+  --page-text: #f6f2ec;
+  --surface: #141414;
+  --surface-soft: #1e1e1e;
+  --surface-card: #1a1a1a;
+  --border-soft: #343434;
+  --text-soft: #d2ccc4;
+  --text-muted: #a59e96;
+  --brand: #c74b47;
+  --brand-dark: #9f322f;
+  --brand-light: #e7b3b0;
+  color-scheme: dark;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  @apply antialiased;
+  min-height: 100vh;
+  background-color: var(--page-bg);
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--page-text);
+}
+
+:root.dark body {
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a {
+  @apply transition-colors;
+}
+
+.container-page {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-6;
+}
+
+.section-card {
+  @apply rounded-[2rem] shadow-sm;
+  border: 1px solid var(--border-soft);
+  background-color: rgb(255 255 255 / 0.9);
+  backdrop-filter: blur(16px);
+}
+
+:root.dark .section-card {
+  background-color: rgb(20 20 20 / 0.9);
+}
+
+.contact-pill {
+  @apply inline-flex min-h-11 items-center rounded-full border px-5 py-3 text-sm font-semibold;
+  border-color: var(--border-soft);
+  color: var(--page-text);
+  background-color: rgb(255 255 255 / 0.86);
+}
+
+.contact-pill:hover {
+  border-color: var(--brand);
+  color: var(--brand-dark);
+}
+
+:root.dark .contact-pill {
+  background-color: rgb(20 20 20 / 0.78);
+}
+
+@layer utilities {
+  .bg-brand {
+    background-color: var(--brand) !important;
+  }
+  .bg-brand-dark {
+    background-color: var(--brand-dark) !important;
+  }
+  .bg-brand-light {
+    background-color: var(--brand-light) !important;
+  }
+  .text-brand-dark {
+    color: var(--brand-dark) !important;
+  }
+  .text-brand-light {
+    color: var(--brand-light) !important;
+  }
+  .border-brand {
+    border-color: var(--brand) !important;
+  }
+  .dark\:bg-brand:is(.dark *) {
+    background-color: var(--brand) !important;
+  }
+  .dark\:bg-brand-dark:is(.dark *) {
+    background-color: var(--brand-dark) !important;
+  }
+  .dark\:bg-brand\/20:is(.dark *) {
+    background-color: rgb(199 75 71 / 0.2) !important;
+  }
+  .dark\:text-brand-light:is(.dark *) {
+    color: var(--brand-light) !important;
+  }
+  .dark\:border-brand:is(.dark *) {
+    border-color: var(--brand) !important;
+  }
+  .bg-slate-50 {
+    background-color: var(--surface-soft) !important;
+  }
+  .bg-slate-100 {
+    background-color: var(--surface-soft) !important;
+  }
+  .bg-white {
+    background-color: var(--surface) !important;
+  }
+  .bg-card-inner {
+    background-color: var(--surface-card) !important;
+  }
+  .bg-white\/70 {
+    background-color: var(--surface-card) !important;
+  }
+  .bg-white\/80 {
+    background-color: var(--surface-card) !important;
+  }
+  .bg-white\/90 {
+    background-color: rgb(255 255 255 / 0.94) !important;
+  }
+  .bg-white\/95 {
+    background-color: rgb(255 255 255 / 0.97) !important;
+  }
+  .text-slate-900 {
+    color: var(--page-text) !important;
+  }
+  .text-slate-700 {
+    color: var(--text-soft) !important;
+  }
+  .text-slate-600 {
+    color: var(--text-soft) !important;
+  }
+  .text-slate-500 {
+    color: var(--text-muted) !important;
+  }
+  .border-slate-200,
+  .border-slate-300,
+  .border-slate-400,
+  .border-slate-500 {
+    border-color: var(--border-soft) !important;
+  }
+  .dark\:bg-slate-950:is(.dark *) {
+    background-color: rgb(20 20 20 / 0.88) !important;
+  }
+  .dark\:bg-slate-950\/40:is(.dark *) {
+    background-color: var(--surface-card) !important;
+  }
+  .dark\:bg-slate-900:is(.dark *) {
+    background-color: var(--surface) !important;
+  }
+  .dark\:bg-slate-900\/60:is(.dark *) {
+    background-color: rgb(6 6 6 / 0.6) !important;
+  }
+  .dark\:bg-slate-900\/90:is(.dark *) {
+    background-color: rgb(20 20 20 / 0.9) !important;
+  }
+  .dark\:bg-slate-900\/95:is(.dark *) {
+    background-color: rgb(20 20 20 / 0.95) !important;
+  }
+  .dark\:bg-slate-800:is(.dark *) {
+    background-color: var(--surface-soft) !important;
+  }
+  .dark\:text-slate-100:is(.dark *) {
+    color: var(--page-text) !important;
+  }
+  .dark\:text-slate-200:is(.dark *) {
+    color: var(--text-soft) !important;
+  }
+  .dark\:text-slate-300:is(.dark *) {
+    color: var(--text-soft) !important;
+  }
+  .dark\:text-slate-400:is(.dark *) {
+    color: var(--text-muted) !important;
+  }
+  .dark\:border-slate-800:is(.dark *) {
+    border-color: var(--border-soft) !important;
+  }
+  .dark\:border-slate-700:is(.dark *) {
+    border-color: var(--border-soft) !important;
+  }
+  .dark\:border-slate-500:is(.dark *) {
+    border-color: var(--border-soft) !important;
+  }
+  .dark\:shadow-black\/30:is(.dark *) {
+    --tw-shadow-color: rgb(0 0 0 / 0.25) !important;
+  }
+}
