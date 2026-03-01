@@ -42,7 +42,7 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang={LOCALE_LANGUAGE_TAGS[DEFAULT_LOCALE]} suppressHydrationWarning>
+    <html lang={LOCALE_LANGUAGE_TAGS[DEFAULT_LOCALE]} className="dark" suppressHydrationWarning>
       <body>
         <JsonLd />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />

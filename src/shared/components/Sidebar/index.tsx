@@ -124,7 +124,7 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
         {/* Brand + tagline - always visible */}
         <Link href={getLocalePath(locale)} className="min-w-0 flex-1 space-y-0.5">
           <span className="text-[1.44rem] font-bold leading-tight tracking-tight text-brand-dark dark:text-brand-light">
-            {siteSettings.brandName}
+            {header.brand_name}
           </span>
           <p className="text-[0.73rem] leading-tight text-slate-600 dark:text-slate-300">{siteSettings.tagline}</p>
         </Link>
