@@ -45,7 +45,7 @@ src/
 │       ├── contact/page.tsx    # Contact / quote
 │       └── [slug]/page.tsx    # Catch-all (aliases, dynamic pages, fallback)
 ├── shared/
-│   ├── components/            # Sidebar, Footer, ThemeSwitch, [project components]
+│   ├── components/            # Sidebar, LocaleDropdown, ThemeSwitch, Footer, [project components]
 │   ├── lang/                  # Locale JSON files
 │   ├── types/                 # Locale typing
 │   └── utils/                 # transformLocaleData, routing, [project utils]
@@ -54,8 +54,8 @@ docs/                          # Specs and guidelines
 
 ## Features
 
-- **Multilingual:** [e.g. English (en-us) and Portuguese (pt-br)] via locale JSON files; portfolio/gallery may use a CMS
-- **Theme switching:** Light/dark mode (default: light) with `localStorage` persistence
+- **Multilingual:** [e.g. English (en-us) and Portuguese (pt-br)] via locale JSON files; HeroUI-style dropdown (no label); portfolio/gallery may use a CMS
+- **Theme switching:** Sun icon (light) / moon icon (dark); no label; `localStorage` persistence
 - **[Primary CTA]:** [e.g. Short form + direct WhatsApp integration]
 - **Localized routing:** `/{locale}/about`, `/{locale}/contact`, plus slug aliases
 - **[Optional feature]:** [e.g. Portfolio lightbox, menu gallery—describe if present]

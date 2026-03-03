@@ -32,6 +32,8 @@ Routing/navigation edits:
 - Load `src/shared/utils/routing/index.ts`
 - Load `src/shared/utils/transformLocaleData/index.ts`
 - Load `src/shared/components/Sidebar/index.tsx`
+- Load `src/shared/components/LocaleDropdown/index.tsx` (HeroUI-style dropdown, no label)
+- Load `src/shared/components/ThemeSwitch/index.tsx` (sun/moon icons, no label)
 
 Prismic/modeling edits:
 

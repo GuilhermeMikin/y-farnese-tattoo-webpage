@@ -149,12 +149,13 @@ Initial palette direction is based on the references note (`black, grey, white a
 
 - **Languages:** Portuguese (`pt-br`) default and English (`en-us`) secondary.
 - **Public locale policy:** Hide `pt-br` in public URLs; keep `en-us` locale-prefixed.
-- **Themes:** Light and dark mode. Toggle next to the language selector. Works on all pages.
+- **Language selector:** HeroUI-style dropdown (no IDIOMA/LANGUAGE label). Shows current locale; click to open menu with all supported locales.
+- **Themes:** Light and dark mode. Icon-only switch: sun when light, moon when dark (no TEMA/THEME label). Works on all pages.
 
 ## Navigation and Responsive Behavior
 
 - **Mobile menu:** Hamburger menu with fast access to Home, About, Portfolio/Styles, and Contact/Booking.
-- **Header priority:** Brand name, locale switcher, theme switch, and an always-visible booking action.
+- **Header priority:** Brand name, locale dropdown, theme icon (sun/moon), and an always-visible booking action.
 
 ---
 

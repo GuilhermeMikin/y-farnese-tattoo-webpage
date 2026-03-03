@@ -32,7 +32,8 @@ Root handling is already middleware-based: the public `/` path rewrites internal
 - Server components: route pages, metadata generation, and locale layout
 - Client components:
   - `src/shared/components/Sidebar/index.tsx`
-  - `src/shared/components/ThemeSwitch/index.tsx`
+  - `src/shared/components/LocaleDropdown/index.tsx` (HeroUI-style dropdown, no label)
+  - `src/shared/components/ThemeSwitch/index.tsx` (sun icon in light mode, moon icon in dark mode; no label)
   - `src/shared/components/LocaleLangSync/index.tsx`
   - `src/shared/components/WhatsAppFab/index.tsx`
   - `src/shared/components/ContactQuickForm/index.tsx`
@@ -58,7 +59,7 @@ Root handling is already middleware-based: the public `/` path rewrites internal
 ## Responsive Navigation
 
 - **Mobile:** Hamburger navigation remains the default pattern
-- **Header behavior:** Brand, locale switch, theme switch, and booking action remain visible or quickly reachable
+- **Header behavior:** Brand, locale dropdown (no IDIOMA/LANGUAGE label), theme icon (sun when light, moon when dark; no TEMA/THEME label), and booking action remain visible or quickly reachable
 - **Primary conversion:** WhatsApp access should never be buried behind more than one extra tap on mobile
 
 ## Theme Behavior

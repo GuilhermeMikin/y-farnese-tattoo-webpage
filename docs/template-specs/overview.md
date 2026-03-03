@@ -27,8 +27,9 @@ Root redirect: `src/app/page.tsx` or middleware rewrites/redirects to `/[default
 
 - Server components: route pages and locale layout
 - Client components:
-  - `src/shared/components/Sidebar/index.tsx` (navigation, language switch, theme switch host)
-  - `src/shared/components/ThemeSwitch/index.tsx` (theme toggle + persistence)
+  - `src/shared/components/Sidebar/index.tsx` (navigation, locale dropdown, theme switch host)
+  - `src/shared/components/LocaleDropdown/index.tsx` (HeroUI-style dropdown, no IDIOMA/LANGUAGE label)
+  - `src/shared/components/ThemeSwitch/index.tsx` (sun icon when light, moon icon when dark; no TEMA/THEME label; persistence)
   - [Add project-specific client components: e.g. PortfolioCardCarousel, ContactQuickForm]
 
 ## Localization Model
@@ -48,10 +49,10 @@ Root redirect: `src/app/page.tsx` or middleware rewrites/redirects to `/[default
 
 - **Mobile (default):** The main navigation uses a hamburger menu (slide-out drawer). Brand and tagline stay visible in the header. This is the default unless the business spec states otherwise.
 
-## Theme Behavior
+## Theme and Locale Controls
 
-- Theme is controlled by class-based dark mode on the root HTML element (`html.dark`)
-- Header toggle writes user preference to `localStorage` (`[project-slug]-theme`)
+- **Theme:** Icon-only switch (sun when light, moon when dark). No TEMA/THEME label. Class-based dark mode on `html.dark`; preference in `localStorage`.
+- **Locale:** HeroUI-style dropdown showing current language. No IDIOMA/LANGUAGE label. Click to select from supported locales.
 - Initial theme is applied early in `src/app/layout.tsx` to reduce flash during hydration
 
 ## CSS Compatibility Note (Mobile Safari)

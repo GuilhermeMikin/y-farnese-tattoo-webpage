@@ -152,8 +152,8 @@ The visitor can also use: [direct link, QR code, phone number].
 
 ## Languages and Themes
 
-- **Languages:** [e.g. Portuguese (pt-BR), English (en-US)]. Selector in the header.
-- **Themes:** Light and dark mode. Toggle next to the language selector. Works on all pages.
+- **Languages:** [e.g. Portuguese (pt-BR), English (en-US)]. HeroUI-style dropdown in the header (no IDIOMA/LANGUAGE label).
+- **Themes:** Light and dark mode. Icon-only switch: sun when light, moon when dark (no TEMA/THEME label). Works on all pages.
 
 ## Navigation and Responsive Behavior
 
