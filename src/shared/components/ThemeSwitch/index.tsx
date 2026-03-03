@@ -8,7 +8,6 @@ const STORAGE_KEY = THEME_STORAGE_KEY;
 type ThemeMode = "light" | "dark";
 
 type ThemeSwitchProps = {
-  label: string;
   lightLabel: string;
   darkLabel: string;
 };
@@ -19,7 +18,44 @@ function applyTheme(theme: ThemeMode) {
   root.style.colorScheme = theme;
 }
 
-export default function ThemeSwitch({ label, lightLabel, darkLabel }: ThemeSwitchProps) {
+function SunIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden
+    >
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+    </svg>
+  );
+}
+
+export default function ThemeSwitch({ lightLabel, darkLabel }: ThemeSwitchProps) {
   const [theme, setTheme] = useState<ThemeMode>("dark");
 
   useEffect(() => {
@@ -49,27 +85,19 @@ export default function ThemeSwitch({ label, lightLabel, darkLabel }: ThemeSwitc
   };
 
   return (
-    <div className="flex items-center gap-1.5">
-      <span className="text-[0.64rem] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
-        {label}
-      </span>
-      <button
-        type="button"
-        role="switch"
-        aria-checked={isDark}
-        aria-label={`${label}: ${isDark ? darkLabel : lightLabel}`}
-        onClick={handleToggle}
-        className={`relative inline-flex h-11 w-16 items-center rounded-full px-1 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900 ${
-          isDark ? "bg-brand" : "bg-slate-300"
-        }`}
-      >
-        <span className="sr-only">{isDark ? darkLabel : lightLabel}</span>
-        <span
-          className={`h-7 w-7 rounded-full bg-white shadow-sm transition-transform ${
-            isDark ? "translate-x-7" : "translate-x-0"
-          }`}
-        />
-      </button>
-    </div>
+    <button
+      type="button"
+      role="switch"
+      aria-checked={isDark}
+      aria-label={isDark ? darkLabel : lightLabel}
+      onClick={handleToggle}
+      className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700 dark:focus-visible:ring-offset-slate-900"
+    >
+      {isDark ? (
+        <MoonIcon className="h-5 w-5" />
+      ) : (
+        <SunIcon className="h-5 w-5" />
+      )}
+    </button>
   );
 }

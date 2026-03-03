@@ -7,7 +7,7 @@
   --page-text: #121212;
   --surface: #ffffff;
   --surface-soft: #eae5de;
-  --surface-card: #f7f4ef;
+  --surface-card: #ded9cf;
   --border-soft: #cfc7be;
   --text-soft: #49433d;
   --text-muted: #706860;
@@ -65,7 +65,7 @@ a {
 .section-card {
   @apply rounded-[2rem] shadow-sm;
   border: 1px solid var(--border-soft);
-  background-color: rgb(255 255 255 / 0.9);
+  background-color: rgb(222 217 207 / 0.95);
   backdrop-filter: blur(16px);
 }
 
@@ -77,7 +77,7 @@ a {
   @apply inline-flex min-h-11 items-center rounded-full border px-5 py-3 text-sm font-semibold;
   border-color: var(--border-soft);
   color: var(--page-text);
-  background-color: rgb(255 255 255 / 0.86);
+  background-color: rgb(222 217 207 / 0.9);
 }
 
 .contact-pill:hover {
@@ -142,10 +142,10 @@ a {
     background-color: var(--surface-card) !important;
   }
   .bg-white\/90 {
-    background-color: rgb(255 255 255 / 0.94) !important;
+    background-color: rgb(222 217 207 / 0.94) !important;
   }
   .bg-white\/95 {
-    background-color: rgb(255 255 255 / 0.97) !important;
+    background-color: rgb(222 217 207 / 0.97) !important;
   }
   .text-slate-900 {
     color: var(--page-text) !important;
