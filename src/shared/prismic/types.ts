@@ -22,7 +22,7 @@ export type SiteSettingsData = {
   source: ContentSource;
 };
 
-export type ProcedureSummaryData = {
+export type PortfolioSummaryData = {
   slug: string;
   locale: SupportedLocale;
   title: string;
@@ -32,12 +32,12 @@ export type ProcedureSummaryData = {
   source: ContentSource;
 };
 
-export type ProcedureDetailData = ProcedureSummaryData & {
+export type PortfolioDetailData = PortfolioSummaryData & {
   body: string[];
   beforeAfterImages: MediaImage[];
 };
 
-export type ProcedureRouteRef = {
+export type PortfolioRouteRef = {
   locale: SupportedLocale;
   slug: string;
   source: ContentSource;
@@ -47,10 +47,10 @@ export interface SiteSettingsAdapter {
   get(locale: SupportedLocale): Promise<SiteSettingsData>;
 }
 
-export interface ProcedureAdapter {
-  list(locale: SupportedLocale): Promise<ProcedureSummaryData[]>;
-  getBySlug(locale: SupportedLocale, slug: string): Promise<ProcedureDetailData | null>;
-  listRouteRefs(): Promise<ProcedureRouteRef[]>;
+export interface PortfolioAdapter {
+  list(locale: SupportedLocale): Promise<PortfolioSummaryData[]>;
+  getBySlug(locale: SupportedLocale, slug: string): Promise<PortfolioDetailData | null>;
+  listRouteRefs(): Promise<PortfolioRouteRef[]>;
 }
 
 export type PrismicDocumentData = Record<

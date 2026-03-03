@@ -20,8 +20,8 @@ This architecture serves a multilingual tattoo artist marketing site focused on 
 - Home page: `src/app/[locale]/page.tsx`
 - About page: `src/app/[locale]/about/page.tsx`
 - Contact page: `src/app/[locale]/contact/page.tsx`
-- Procedures/styles listing: `src/app/[locale]/procedures/page.tsx`
-- Procedure/style detail: `src/app/[locale]/procedures/[slug]/page.tsx`
+- Portfolios/styles listing: `src/app/[locale]/portfolio/page.tsx`
+- Portfolio/style detail: `src/app/[locale]/portfolio/[slug]/page.tsx`
 - Privacy page: `src/app/[locale]/privacy-policy/page.tsx`
 - Catch-all localized slug handler: `src/app/[locale]/[slug]/page.tsx`
 
@@ -49,7 +49,7 @@ Root handling is already middleware-based: the public `/` path rewrites internal
 
 - Public default-locale URLs hide the locale prefix
 - `getLocalePath()` in `src/shared/config/locales.ts` should be used wherever locale-aware links are generated
-- Canonical route targets remain English (`about`, `procedures`, `contact`, `privacy-policy`)
+- Canonical route targets remain English (`about`, `portfolio`, `contact`, `privacy-policy`)
 - `src/middleware.ts` handles:
   - redirecting `/pt-br/*` to locale-hidden equivalents
   - rewriting locale-hidden default-locale routes internally
@@ -78,12 +78,12 @@ Root handling is already middleware-based: the public `/` path rewrites internal
 
 - Existing custom type schemas:
   - `customtypes/site_settings/index.json`
-  - `customtypes/procedure/index.json`
+  - `customtypes/portfolio/index.json`
 - Existing adapters:
   - `src/shared/prismic/site-settings-adapter.ts`
-  - `src/shared/prismic/procedure-adapter.ts`
+  - `src/shared/prismic/portfolio-adapter.ts`
 
-For the Yolanda build, `site_settings` and `procedure` are the active adapter boundary. Portfolio/work modeling still needs normalization for the later content phase.
+For the Yolanda build, `site_settings` and `portfolio` are the active adapter boundary. Portfolio/work modeling still needs normalization for the later content phase.
 
 ## CSS Compatibility Note (Mobile Safari)
 
@@ -94,5 +94,5 @@ For the Yolanda build, `site_settings` and `procedure` are the active adapter bo
 ## Known Constraints
 
 - `basic-business-info.json` does not yet include a confirmed Maps URL or full address, so the UI must keep safe non-click fallbacks for location.
-- Portfolio/work modeling still needs a dedicated Prismic content type when the implementation moves beyond the current procedure/style scaffold.
+- Portfolio/work modeling still needs a dedicated Prismic content type when the implementation moves beyond the current portfolio/style scaffold.
 - `package-lock.json` still needs to be generated and validated before `npm ci` can be considered stable.

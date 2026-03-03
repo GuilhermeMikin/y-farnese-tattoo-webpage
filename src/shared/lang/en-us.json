@@ -12,7 +12,7 @@
         "title": "About | Yolanda Farnese",
         "description": "Meet Yolanda Farnese, tattoo artist based in Uberlandia - MG with a Fine Line and Blackwork focus."
       },
-      "procedures": {
+      "portfolio": {
         "title": "Portfolio and Styles | Yolanda Farnese",
         "description": "Browse the initial style and portfolio page scaffold that will be populated from Prismic."
       },
@@ -29,7 +29,7 @@
   "common": {
     "learn_more": "Learn more",
     "back_home": "Back home",
-    "back_to_procedures": "Back to portfolio"
+    "back_to_portfolios": "Back to portfolio"
   },
   "header": {
     "brand_name": "Yolanda Farnese 🦇",
@@ -37,7 +37,7 @@
     "navigation": {
       "home": "Home",
       "about": "About",
-      "procedures": "Portfolio",
+      "portfolio": "Portfolio",
       "contact": "Contact"
     },
     "primary_cta": "Message on WhatsApp",
@@ -76,7 +76,7 @@
           "Active portfolio and direct WhatsApp contact"
         ]
       },
-      "featured_procedures": {
+      "featured_portfolios": {
         "title": "Initial styles and highlights",
         "description": "These pages work as content scaffolding until final editorial copy and galleries are published in Prismic.",
         "details_cta": "Open page"
@@ -103,14 +103,14 @@
       ],
       "cta_label": "Message on WhatsApp"
     },
-    "procedures": {
+    "portfolio": {
       "title": "Portfolio and styles",
       "intro": "Browse the initial style and portfolio grouping scaffold. Final descriptions, galleries, and editorial variants will be published from Prismic.",
       "category_label": "Category",
       "booking_cta": "Request quote",
       "empty_state": "Styles will appear here as soon as content is published."
     },
-    "procedure_detail": {
+    "portfolio_detail": {
       "category_label": "Category",
       "booking_cta": "Request quote",
       "not_found_title": "Page not found",

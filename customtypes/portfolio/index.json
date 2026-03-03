@@ -1,7 +1,7 @@
 {
   "format": "custom",
-  "id": "procedure",
-  "label": "Procedure",
+  "id": "portfolio",
+  "label": "Portfolio",
   "repeatable": true,
   "status": true,
   "json": {

@@ -43,8 +43,8 @@ Create a multilingual marketing and portfolio website for **Yolanda Farnese**, a
 |------|------------------------|------------------------|-------------|
 | **Home** | `/` | `/en-us` | Brand positioning, featured work, style focus, trust signals, and primary booking CTA |
 | **About** | `/about` | `/en-us/about` | Yolanda's short bio, artistic approach, and tattoo style philosophy |
-| **Portfolio / Styles** | `/procedures` | `/en-us/procedures` | Listing page for tattoo styles/services and selected portfolio highlights managed via Prismic |
-| **Style detail** | `/procedures/[slug]` | `/en-us/procedures/[slug]` | Detail page for a tattoo style or service with summary, inspiration, gallery, and CTA |
+| **Portfolio / Styles** | `/portfolio` | `/en-us/portfolio` | Listing page for tattoo styles/services and selected portfolio highlights managed via Prismic |
+| **Style detail** | `/portfolio/[slug]` | `/en-us/portfolio/[slug]` | Detail page for a tattoo style or service with summary, inspiration, gallery, and CTA |
 | **Contact / Booking** | `/contact` | `/en-us/contact` | WhatsApp-first contact page with Instagram and location context |
 | **Privacy Policy** | `/privacy-policy` | `/en-us/privacy-policy` | Legal/compliance page |
 

@@ -36,9 +36,9 @@ Routing/navigation edits:
 Prismic/modeling edits:
 
 - Load `customtypes/site_settings/index.json`
-- Load `customtypes/procedure/index.json`
+- Load `customtypes/portfolio/index.json`
 - Load `src/shared/prismic/site-settings-adapter.ts`
-- Load `src/shared/prismic/procedure-adapter.ts`
+- Load `src/shared/prismic/portfolio-adapter.ts`
 - Load `src/shared/prismic/client.ts`
 
 Page/layout edits:

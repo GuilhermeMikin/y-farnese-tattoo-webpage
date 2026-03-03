@@ -6,17 +6,17 @@ import { toPrismicLocale } from "./locales";
 import { readTextField } from "./helpers";
 import type {
   PrismicDocumentData,
-  ProcedureAdapter,
-  ProcedureDetailData,
-  ProcedureRouteRef,
-  ProcedureSummaryData,
+  PortfolioAdapter,
+  PortfolioDetailData,
+  PortfolioRouteRef,
+  PortfolioSummaryData,
 } from "./types";
 
 import type { SupportedLocale } from "@/shared/types/locale";
 
-type FallbackProcedure = Omit<ProcedureDetailData, "locale" | "source">;
+type FallbackPortfolio = Omit<PortfolioDetailData, "locale" | "source">;
 
-const FALLBACK_PROCEDURES: Record<SupportedLocale, FallbackProcedure[]> = {
+const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
   "pt-br": [
     {
       slug: "fine-line",
@@ -44,7 +44,7 @@ const FALLBACK_PROCEDURES: Record<SupportedLocale, FallbackProcedure[]> = {
     {
       slug: "lettering-symbols",
       title: "Lettering e Símbolos",
-      category: "Portfolio",
+      category: "Portfólio",
       description: "Categoria inicial para trabalhos com frases curtas, palavras, símbolos e composições minimalistas.",
       ctaLabel: "Pedir orçamento",
       body: [
@@ -55,7 +55,7 @@ const FALLBACK_PROCEDURES: Record<SupportedLocale, FallbackProcedure[]> = {
     {
       slug: "illustrated-pieces",
       title: "Peças Ilustradas",
-      category: "Portfolio",
+      category: "Portfólio",
       description: "Agrupamento inicial para peças ilustradas observadas nas referências visuais do perfil.",
       ctaLabel: "Pedir orçamento",
       body: [
@@ -112,21 +112,21 @@ const FALLBACK_PROCEDURES: Record<SupportedLocale, FallbackProcedure[]> = {
   ],
 };
 
-const PROCEDURE_TYPE = "procedure";
+const PORTFOLIO_TYPE = "portfolio";
 
-function mapFallbackProcedure(locale: SupportedLocale, procedure: FallbackProcedure): ProcedureDetailData {
+function mapFallbackPortfolio(locale: SupportedLocale, portfolio: FallbackPortfolio): PortfolioDetailData {
   return {
-    ...procedure,
+    ...portfolio,
     locale,
     source: "fallback",
   };
 }
 
-function mapPrismicProcedureDocument(
+function mapPrismicPortfolioDocument(
   locale: SupportedLocale,
   document: prismic.PrismicDocument<PrismicDocumentData>,
-  fallback: ProcedureDetailData,
-): ProcedureDetailData {
+  fallback: PortfolioDetailData,
+): PortfolioDetailData {
   const galleryField = Array.isArray(document.data.before_after_gallery)
     ? document.data.before_after_gallery
     : [];
@@ -171,21 +171,21 @@ function mapPrismicProcedureDocument(
   };
 }
 
-async function listFallbackProcedures(locale: SupportedLocale): Promise<ProcedureDetailData[]> {
-  return FALLBACK_PROCEDURES[locale].map((procedure) => mapFallbackProcedure(locale, procedure));
+async function listFallbackPortfolios(locale: SupportedLocale): Promise<PortfolioDetailData[]> {
+  return FALLBACK_PORTFOLIOS[locale].map((portfolio) => mapFallbackPortfolio(locale, portfolio));
 }
 
-const listProceduresUncached = async (locale: SupportedLocale): Promise<ProcedureDetailData[]> => {
-  const fallback = await listFallbackProcedures(locale);
+const listPortfoliosUncached = async (locale: SupportedLocale): Promise<PortfolioDetailData[]> => {
+  const fallback = await listFallbackPortfolios(locale);
   const client = createPrismicClient();
   if (!client) {
     return fallback;
   }
 
   try {
-    const documents = (await client.getAllByType(PROCEDURE_TYPE, {
+    const documents = (await client.getAllByType(PORTFOLIO_TYPE, {
       lang: toPrismicLocale(locale),
-      orderings: [{ field: "my.procedure.title", direction: "asc" }],
+      orderings: [{ field: "my.portfolio.title", direction: "asc" }],
     })) as prismic.PrismicDocument<PrismicDocumentData>[];
 
     if (documents.length === 0) {
@@ -193,26 +193,26 @@ const listProceduresUncached = async (locale: SupportedLocale): Promise<Procedur
     }
 
     return documents.map((document, index) =>
-      mapPrismicProcedureDocument(locale, document, fallback[index] ?? fallback[0]),
+      mapPrismicPortfolioDocument(locale, document, fallback[index] ?? fallback[0]),
     );
   } catch (error) {
-    console.error(`[prismic] Failed to load procedures for locale '${locale}'.`, error);
+    console.error(`[prismic] Failed to load portfolio for locale '${locale}'.`, error);
     return fallback;
   }
 };
 
-const listProcedures =
+const listPortfolios =
   process.env.NODE_ENV === "development"
-    ? listProceduresUncached
-    : cache(listProceduresUncached);
+    ? listPortfoliosUncached
+    : cache(listPortfoliosUncached);
 
-const procedureAdapter: ProcedureAdapter = {
+const portfolioAdapter: PortfolioAdapter = {
   async list(locale) {
-    const procedures = await listProcedures(locale);
-    return procedures.map<ProcedureSummaryData>(
-      ({ slug, locale: procedureLocale, title, category, description, ctaLabel, source }) => ({
+    const portfolio = await listPortfolios(locale);
+    return portfolio.map<PortfolioSummaryData>(
+      ({ slug, locale: portfolioLocale, title, category, description, ctaLabel, source }) => ({
         slug,
-        locale: procedureLocale,
+        locale: portfolioLocale,
         title,
         category,
         description,
@@ -223,18 +223,18 @@ const procedureAdapter: ProcedureAdapter = {
   },
 
   async getBySlug(locale, slug) {
-    const procedures = await listProcedures(locale);
-    return procedures.find((procedure) => procedure.slug === slug) ?? null;
+    const portfolio = await listPortfolios(locale);
+    return portfolio.find((portfolio) => portfolio.slug === slug) ?? null;
   },
 
   async listRouteRefs() {
     const entries = await Promise.all(
       (["pt-br", "en-us"] as const).map(async (locale) => {
-        const procedures = await listProcedures(locale);
-        return procedures.map<ProcedureRouteRef>((procedure) => ({
+        const portfolio = await listPortfolios(locale);
+        return portfolio.map<PortfolioRouteRef>((portfolio) => ({
           locale,
-          slug: procedure.slug,
-          source: procedure.source,
+          slug: portfolio.slug,
+          source: portfolio.source,
         }));
       }),
     );
@@ -243,6 +243,6 @@ const procedureAdapter: ProcedureAdapter = {
   },
 };
 
-export function createProcedureAdapter(): ProcedureAdapter {
-  return procedureAdapter;
+export function createPortfolioAdapter(): PortfolioAdapter {
+  return portfolioAdapter;
 }

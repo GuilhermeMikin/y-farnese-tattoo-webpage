@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLocalePath } from "@/shared/config/locales";
 import { buildAbsoluteUrl } from "@/shared/config/site";
-import { createProcedureAdapter } from "@/shared/prismic/procedure-adapter";
+import { createPortfolioAdapter } from "@/shared/prismic/portfolio-adapter";
 import { createSiteSettingsAdapter } from "@/shared/prismic/site-settings-adapter";
 import { transformLocaleData } from "@/shared/utils/transformLocaleData";
 
@@ -33,7 +33,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const { locale: safeLocale, messages } = transformLocaleData(locale);
   const siteSettings = await createSiteSettingsAdapter().get(safeLocale);
-  const procedures = await createProcedureAdapter().list(safeLocale);
+  const portfolio = await createPortfolioAdapter().list(safeLocale);
   const home = messages.pages.home;
   const about = messages.pages.about;
 
@@ -61,7 +61,7 @@ export default async function HomePage({ params }: HomePageProps) {
                 {home.hero.primary_cta}
               </a>
               <Link
-                href={getLocalePath(safeLocale, "procedures")}
+                href={getLocalePath(safeLocale, "portfolio")}
                 className="inline-flex min-h-11 items-center rounded-full border border-brand-light bg-brand-light px-6 py-3 text-sm font-semibold text-brand-dark hover:bg-brand hover:text-white dark:border-brand/40 dark:bg-brand/20 dark:text-brand-light dark:hover:bg-brand dark:hover:text-white"
               >
                 {home.hero.secondary_cta}
@@ -98,36 +98,36 @@ export default async function HomePage({ params }: HomePageProps) {
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-              {home.featured_procedures.title}
+              {home.featured_portfolios.title}
             </h2>
             <p className="mt-3 max-w-3xl text-base text-slate-700 dark:text-slate-300">
-              {home.featured_procedures.description}
+              {home.featured_portfolios.description}
             </p>
           </div>
           <Link
-            href={getLocalePath(safeLocale, "procedures")}
+            href={getLocalePath(safeLocale, "portfolio")}
             className="inline-flex min-h-11 items-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand-dark dark:border-slate-700 dark:text-slate-200"
           >
             {messages.common.learn_more}
           </Link>
         </div>
         <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {procedures.slice(0, 4).map((procedure) => (
-            <article key={procedure.slug} className="rounded-3xl border border-slate-200 bg-white/70 p-5 dark:border-slate-800 dark:bg-slate-950/40">
+          {portfolio.slice(0, 4).map((portfolio) => (
+            <article key={portfolio.slug} className="rounded-3xl border border-slate-200 bg-white/70 p-5 dark:border-slate-800 dark:bg-slate-950/40">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-dark dark:text-brand-light">
-                {procedure.category}
+                {portfolio.category}
               </p>
               <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-slate-100">
-                {procedure.title}
+                {portfolio.title}
               </h3>
               <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                {procedure.description}
+                {portfolio.description}
               </p>
               <Link
-                href={getLocalePath(safeLocale, `procedures/${procedure.slug}`)}
+                href={getLocalePath(safeLocale, `portfolio/${portfolio.slug}`)}
                 className="mt-5 inline-flex min-h-11 items-center rounded-full bg-brand-light px-4 py-2 text-sm font-semibold text-brand-dark hover:bg-brand dark:bg-brand/20 dark:text-brand-light"
               >
-                {home.featured_procedures.details_cta}
+                {home.featured_portfolios.details_cta}
               </Link>
             </article>
           ))}

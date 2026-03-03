@@ -20,8 +20,8 @@ Baseline page set for the initial delivery:
 
 Adjusted labels for this brand:
 
-- Navigation label in `pt-br`: `Portfolio` or `Estilos`
-- Canonical route slug remains `procedures`
+- Navigation label in `pt-br`: `Portfólio` or `Estilos`
+- Canonical route slug remains `portfolio`
 - Detail pages represent tattoo styles/services and can embed related portfolio imagery
 
 Supporting structure:
@@ -55,7 +55,7 @@ Use the following active content model:
   - Address label/full address
   - SEO defaults if moved from code later
 
-- `procedure` or renamed `service`
+- `portfolio` or renamed `service`
   - UID
   - Title
   - Style/category
@@ -72,7 +72,7 @@ Use the following active content model:
   - Cover image
   - Gallery images
   - Short description
-  - Optional relationship to a `procedure/service`
+  - Optional relationship to a `portfolio/service`
   - Display order / featured flag
 
 Optional types:
@@ -85,7 +85,7 @@ Optional types:
 Keep the initial build conservative.
 
 - Use fixed route layouts for Home, About, Contact, and Privacy.
-- Use structured fields, groups, and content relationships for `procedure/service` and `work`.
+- Use structured fields, groups, and content relationships for `portfolio/service` and `work`.
 - Avoid a slice-heavy architecture for the first delivery because the current content needs are mostly stable and taxonomy-driven.
 - Reserve Slice Machine slices for future marketing experiments only if the project later needs campaign-specific landing pages.
 
@@ -101,7 +101,7 @@ This keeps the portfolio and style system easy to model while avoiding unnecessa
   - Redirect `/pt-br/*` to the locale-hidden equivalent
 - Canonical slugs remain English:
   - `about`
-  - `procedures`
+  - `portfolio`
   - `contact`
   - `privacy-policy`
 - Localized aliases redirect to canonical slugs
@@ -112,8 +112,8 @@ This keeps the portfolio and style system easy to model while avoiding unnecessa
 Routing:
 
 - `/` => localized Home for `pt-br`
-- `/about`, `/procedures`, `/procedures/[slug]`, `/contact`, `/privacy-policy`
-- `/en-us`, `/en-us/about`, `/en-us/procedures`, `/en-us/procedures/[slug]`, `/en-us/contact`, `/en-us/privacy-policy`
+- `/about`, `/portfolio`, `/portfolio/[slug]`, `/contact`, `/privacy-policy`
+- `/en-us`, `/en-us/about`, `/en-us/portfolio`, `/en-us/portfolio/[slug]`, `/en-us/contact`, `/en-us/privacy-policy`
 
 SEO rules:
 
@@ -135,7 +135,7 @@ SEO rules:
 
 1. Normalize repository configuration and package manifest so the project can lint and build reliably.
 2. Replace previous-brand business data, metadata, and locale copy with Yolanda-specific content.
-3. Normalize Prismic schemas and adapters around `site_settings`, `procedure/service`, and `work`.
+3. Normalize Prismic schemas and adapters around `site_settings`, `portfolio/service`, and `work`.
 4. Implement core pages and routing with the hidden-default-locale policy intact.
 5. Populate initial Prismic content and verify SEO, accessibility, and mobile behavior.
 

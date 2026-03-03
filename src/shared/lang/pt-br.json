@@ -12,8 +12,8 @@
         "title": "Sobre | Yolanda Farnese",
         "description": "Conheça a abordagem artística da Yolanda Farnese, Tattoo Artist em Uberlândia - MG."
       },
-      "procedures": {
-        "title": "Portfolio e Estilos | Yolanda Farnese",
+      "portfolio": {
+        "title": "Portfólio e Estilos | Yolanda Farnese",
         "description": "Explore a estrutura inicial de estilos e páginas de portfolio que serão abastecidas via Prismic."
       },
       "contact": {
@@ -29,7 +29,7 @@
   "common": {
     "learn_more": "Saiba mais",
     "back_home": "Voltar ao início",
-    "back_to_procedures": "Voltar para o portfolio"
+    "back_to_portfolios": "Voltar para o portfolio"
   },
   "header": {
     "brand_name": "Yolanda Farnese 🦇",
@@ -37,7 +37,7 @@
     "navigation": {
       "home": "Início",
       "about": "Sobre",
-      "procedures": "Portfolio",
+      "portfolio": "Portfólio",
       "contact": "Contato"
     },
     "primary_cta": "Chamar no WhatsApp",
@@ -73,16 +73,16 @@
         "bullets": [
           "Fine Line e Blackwork como foco principal",
           "Atendimento em Uberlândia - MG",
-          "Portfolio ativo e contato direto pelo WhatsApp"
+          "Portfólio ativo e contato direto pelo WhatsApp"
         ]
       },
-      "featured_procedures": {
+      "featured_portfolios": {
         "title": "Estilos e destaques iniciais",
         "description": "Estas páginas funcionam como scaffold de conteúdo até a publicação final via Prismic, preservando rotas, SEO e CTA principal.",
         "details_cta": "Abrir página"
       },
       "contact_strip": {
-        "title": "Pronta para tirar a ideia do papel?",
+        "title": "Pronto (a) para tirar a ideia do papel?",
         "description": "Envie referências, estilo desejado e dúvidas pelo WhatsApp. Instagram e localização entram como apoio para confiança e contexto.",
         "whatsapp_label": "Orçamento no WhatsApp",
         "instagram_label": "Instagram",
@@ -103,14 +103,14 @@
       ],
       "cta_label": "Falar no WhatsApp"
     },
-    "procedures": {
-      "title": "Portfolio e estilos",
+    "portfolio": {
+      "title": "Portfólio e estilos",
       "intro": "Explore a estrutura inicial dos estilos e agrupamentos de portfolio. As descrições finais, galerias e variações editoriais serão publicadas via Prismic.",
       "category_label": "Categoria",
       "booking_cta": "Pedir orçamento",
       "empty_state": "Os estilos aparecerão aqui assim que o conteúdo for publicado."
     },
-    "procedure_detail": {
+    "portfolio_detail": {
       "category_label": "Categoria",
       "booking_cta": "Pedir orçamento",
       "not_found_title": "Página não encontrada",
@@ -155,7 +155,7 @@
   },
   "under_construction": {
     "title": "Esta página está em construção",
-    "description": "Estamos preparando este conteúdo. Use Início, Portfolio, Sobre ou Contato por enquanto.",
+    "description": "Estamos preparando este conteúdo. Use Início, Portfólio, Sobre ou Contato por enquanto.",
     "back_home_label": "Voltar ao início"
   }
 }

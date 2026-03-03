@@ -26,7 +26,7 @@ function NavLinks({
   siteSettings,
   isHome,
   isAbout,
-  isProcedures,
+  isPortfolios,
   isContact,
   onLinkClick
 }: {
@@ -35,7 +35,7 @@ function NavLinks({
   siteSettings: SiteSettingsData;
   isHome: boolean;
   isAbout: boolean;
-  isProcedures: boolean;
+  isPortfolios: boolean;
   isContact: boolean;
   onLinkClick?: () => void;
 }) {
@@ -56,11 +56,11 @@ function NavLinks({
         {header.navigation.about}
       </Link>
       <Link
-        href={getLocalePath(locale, "procedures")}
+        href={getLocalePath(locale, "portfolio")}
         onClick={onLinkClick}
-        className={`inline-flex min-h-11 items-center rounded-full px-3 py-2 hover:text-brand-dark dark:hover:text-brand-light ${isProcedures ? "font-bold" : ""}`}
+        className={`inline-flex min-h-11 items-center rounded-full px-3 py-2 hover:text-brand-dark dark:hover:text-brand-light ${isPortfolios ? "font-bold" : ""}`}
       >
-        {header.navigation.procedures}
+        {header.navigation.portfolio}
       </Link>
       <Link
         href={getLocalePath(locale, "contact")}
@@ -87,7 +87,7 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
   const pathSegment = pathnameToPathSegment(pathname);
   const isHome = pathSegment === "";
   const isAbout = pathSegment === "about";
-  const isProcedures = pathSegment === "procedures" || pathSegment.startsWith("procedures/");
+  const isPortfolios = pathSegment === "portfolio" || pathSegment.startsWith("portfolio/");
   const isContact = pathSegment === "contact";
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -137,7 +137,7 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
             siteSettings={siteSettings}
             isHome={isHome}
             isAbout={isAbout}
-            isProcedures={isProcedures}
+            isPortfolios={isPortfolios}
             isContact={isContact}
           />
         </nav>
@@ -232,7 +232,7 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
               siteSettings={siteSettings}
               isHome={isHome}
               isAbout={isAbout}
-              isProcedures={isProcedures}
+              isPortfolios={isPortfolios}
               isContact={isContact}
               onLinkClick={closeMenu}
             />

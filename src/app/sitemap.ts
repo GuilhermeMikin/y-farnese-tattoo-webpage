@@ -6,10 +6,10 @@ import {
   SUPPORTED_LOCALES,
 } from "@/shared/config/locales";
 import { buildAbsoluteUrl } from "@/shared/config/site";
-import { createProcedureAdapter } from "@/shared/prismic/procedure-adapter";
+import { createPortfolioAdapter } from "@/shared/prismic/portfolio-adapter";
 import type { SupportedLocale } from "@/shared/types/locale";
 
-const PAGES = ["", "about", "procedures", "contact", "privacy-policy"] as const;
+const PAGES = ["", "about", "portfolio", "contact", "privacy-policy"] as const;
 
 function buildLocalizedAlternates(
   pathByLocale: Partial<Record<SupportedLocale, string>>,
@@ -61,12 +61,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  const routeRefs = await createProcedureAdapter().listRouteRefs();
+  const routeRefs = await createPortfolioAdapter().listRouteRefs();
   const pathsBySlug = new Map<string, Partial<Record<SupportedLocale, string>>>();
 
   for (const routeRef of routeRefs) {
     const current = pathsBySlug.get(routeRef.slug) ?? {};
-    current[routeRef.locale] = getLocalePath(routeRef.locale, `procedures/${routeRef.slug}`);
+    current[routeRef.locale] = getLocalePath(routeRef.locale, `portfolio/${routeRef.slug}`);
     pathsBySlug.set(routeRef.slug, current);
   }
 

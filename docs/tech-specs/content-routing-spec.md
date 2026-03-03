@@ -18,10 +18,10 @@ Last updated: 2026-03-01
 
 1. `/` serves the default locale (`pt-br`) through middleware rewrite while keeping the locale hidden in the public URL.
 2. `/{locale}` renders localized home for non-default locales only in public URLs, so `/en-us` is valid and `/pt-br` redirects to `/`.
-3. `/about`, `/procedures`, `/contact`, and `/privacy-policy` serve `pt-br` publicly while being internally rewritten to `/{locale}/...`.
-4. `/en-us/about`, `/en-us/procedures`, `/en-us/contact`, and `/en-us/privacy-policy` remain locale-prefixed.
-5. `/{locale}/procedures/[slug]` stores canonical dynamic detail routes for style/service pages.
-6. Public default-locale detail pages hide the locale prefix: `/procedures/[slug]`.
+3. `/about`, `/portfolio`, `/contact`, and `/privacy-policy` serve `pt-br` publicly while being internally rewritten to `/{locale}/...`.
+4. `/en-us/about`, `/en-us/portfolio`, `/en-us/contact`, and `/en-us/privacy-policy` remain locale-prefixed.
+5. `/{locale}/portfolio/[slug]` stores canonical dynamic detail routes for style/service pages.
+6. Public default-locale detail pages hide the locale prefix: `/portfolio/[slug]`.
 7. `/{locale}/{slug}`:
    - Redirects known localized aliases to canonical English slugs
    - May render future landing pages only if a dedicated content type is approved
@@ -31,7 +31,7 @@ Last updated: 2026-03-01
 
 - Canonical route slugs remain English for stability:
   - `about`
-  - `procedures`
+  - `portfolio`
   - `contact`
   - `privacy-policy`
 - Localized aliases redirect to canonical slugs:
@@ -51,7 +51,7 @@ Minimum expected key groups:
 - `pages.about`
 - `pages.contact`
 - `pages.home`
-- `pages.procedures`
+- `pages.portfolio`
 - `pages.privacy_policy`
 - `under_construction`
 
@@ -70,7 +70,7 @@ If new keys are added for tattoo-specific sections such as featured work, portfo
 - Keep fixed UI strings, navigation labels, error/fallback states, and short static copy in locale JSON.
 - Use Prismic as the primary source for:
   - `site_settings`
-  - `procedure` or renamed `service` content type for tattoo styles/services
+  - `portfolio` or renamed `service` content type for tattoo styles/services
   - `work` content type for portfolio entries
 - Do not introduce `course` or `landing_page` into the active build unless new reference material explicitly supports them.
 

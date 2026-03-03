@@ -10,14 +10,14 @@ Hide `pt-br` in public URLs while keeping internal route handling locale-prefixe
 
 - `/`
 - `/about`
-- `/procedures`
+- `/portfolio`
 - `/contact`
 
 English remains locale-prefixed:
 
 - `/en-us`
 - `/en-us/about`
-- `/en-us/procedures`
+- `/en-us/portfolio`
 - `/en-us/contact`
 
 Requests to `/pt-br/*` redirect to the locale-hidden equivalent.

@@ -35,7 +35,7 @@
 
 ## Technical Hygiene
 
-1. Keep canonical route slugs as `about`, `procedures`, `contact`, and `privacy-policy`.
+1. Keep canonical route slugs as `about`, `portfolio`, `contact`, and `privacy-policy`.
 2. Keep supported locales synchronized between:
    - `src/shared/config/locales.ts`
    - `src/shared/utils/transformLocaleData/index.ts`
