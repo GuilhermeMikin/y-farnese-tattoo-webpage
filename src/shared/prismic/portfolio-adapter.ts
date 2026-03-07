@@ -53,10 +53,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       beforeAfterImages: [],
     },
     {
-      slug: "illustrated-pieces",
-      title: "Peças Ilustradas",
+      slug: "covered-piece",
+      title: "Coberturas",
       category: "Portfólio",
-      description: "Agrupamento inicial para peças ilustradas observadas nas referências visuais do perfil.",
+      description: "Coberturas ou reformas de tatuagens existentes.",
       ctaLabel: "Pedir orçamento",
       body: [
         "Quando o conteúdo estiver no Prismic, esta página pode receber narrativa de estilo, galeria e FAQs específicas.",
