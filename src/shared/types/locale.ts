@@ -50,6 +50,7 @@ export interface LocaleMessages {
   };
   footer: {
     copyright: string;
+    developed_by: string;
     note: string;
     links: {
       instagram: string;

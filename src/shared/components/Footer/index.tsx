@@ -28,7 +28,10 @@ export default function Footer({ messages, siteSettings }: FooterProps) {
             )}
           </div>
         </div>
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{messages.copyright}</p>
+        <div className="mt-2 flex flex-col gap-1 text-xs text-slate-500 dark:text-slate-400 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <p>{messages.copyright}</p>
+          <p>{messages.developed_by}</p>
+        </div>
       </div>
     </footer>
   );
