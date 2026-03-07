@@ -78,7 +78,7 @@ Alternative URLs that redirect to canonical pages. Add locale-specific aliases a
 2. **[Section 2]:** [e.g. Featured portfolio, menu highlights, latest posts]
 3. **[Section 3]:** [e.g. How it works, services, testimonials]
 4. **[Section 4]:** [e.g. Quick contact, CTA block]
-5. **Floating button (optional):** [Fixed button for WhatsApp, phone, or primary CTA—describe placement and behavior]
+5. **Floating button (optional):** Fixed button for WhatsApp in bottom-right corner. Uses `public/whatsapp-icon.png` (icon only, no text). See [whatsapp-fab-spec.md](whatsapp-fab-spec.md).
 
 *Adjust sections to fit the business. Portfolio sites need galleries; bars/bakeries may need menus or highlights; blogs need post previews.*
 

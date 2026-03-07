@@ -70,6 +70,8 @@ docs/                          # Specs and guidelines
 | Document | Purpose |
 |----------|---------|
 | [docs/business-specs/[client]-site-spec.md](docs/business-specs/) | Business intent, audience, scope, success signals |
+| [docs/template-specs/whatsapp-fab-spec.md](whatsapp-fab-spec.md) | WhatsApp FAB: icon asset, component pattern, usage |
+| [docs/template-specs/footer-spec.md](footer-spec.md) | Footer: locale keys, developer credit (PiKiTo Pages), checklist |
 | [docs/tech-specs/content-routing-spec.md](docs/tech-specs/content-routing-spec.md) | Route, locale, and content-shape technical contract |
 | [docs/plans/prismic-slice-machine-setup-guide.md](docs/plans/prismic-slice-machine-setup-guide.md) | Prismic/Slice Machine setup (when using Prismic CMS) |
 | [docs/architecture/overview.md](docs/architecture/overview.md) | Application structure and constraints |

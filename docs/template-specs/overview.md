@@ -25,11 +25,12 @@ Root redirect: `src/app/page.tsx` or middleware rewrites/redirects to `/[default
 
 ## Rendering Boundaries
 
-- Server components: route pages and locale layout
+- Server components: route pages and locale layout (Footer in layout; see [footer-spec.md](footer-spec.md))
 - Client components:
   - `src/shared/components/Sidebar/index.tsx` (navigation, locale dropdown, theme switch host)
   - `src/shared/components/LocaleDropdown/index.tsx` (HeroUI-style dropdown, no IDIOMA/LANGUAGE label)
   - `src/shared/components/ThemeSwitch/index.tsx` (sun icon when light, moon icon when dark; no TEMA/THEME label; persistence)
+  - `src/shared/components/WhatsAppFab/index.tsx` (fixed bottom-right, icon from `public/whatsapp-icon.png`; see [whatsapp-fab-spec.md](whatsapp-fab-spec.md))
   - [Add project-specific client components: e.g. PortfolioCardCarousel, ContactQuickForm]
 
 ## Localization Model
