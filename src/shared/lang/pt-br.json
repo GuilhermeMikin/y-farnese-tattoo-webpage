@@ -1,28 +1,28 @@
 {
   "SEO": {
-    "title": "Yolinda Farnese | Tattoo Artist",
+    "title": "Yolanda Farnese | Tattoo Artist",
     "description": "Tatuadora em Uberlândia - MG. Fine Line e Blackwork. A sua imaginação é a minha inspiração.",
-    "keywords": "Yolinda Farnese, tattoo artist, tatuadora, fine line, blackwork, Uberlândia",
+    "keywords": "Yolanda Farnese, tattoo artist, tatuadora, fine line, blackwork, Uberlândia",
     "pages": {
       "home": {
-        "title": "Yolinda Farnese | Tattoo Artist em Uberlândia",
+        "title": "Yolanda Farnese | Tattoo Artist em Uberlândia",
         "description": "Conheça o portfolio inicial, entenda a assinatura Fine Line e Blackwork e inicie um contato direto pelo WhatsApp."
       },
       "about": {
-        "title": "Sobre | Yolinda Farnese",
-        "description": "Conheça a abordagem artística da Yolinda Farnese, Tattoo Artist em Uberlândia - MG."
+        "title": "Sobre | Yolanda Farnese",
+        "description": "Conheça a abordagem artística da Yolanda Farnese, Tattoo Artist em Uberlândia - MG."
       },
       "portfolio": {
-        "title": "Portfólio e Estilos | Yolinda Farnese",
+        "title": "Portfólio e Estilos | Yolanda Farnese",
         "description": "Explore a estrutura inicial de estilos e páginas de portfolio que serão abastecidas via Prismic."
       },
       "contact": {
-        "title": "Contato | Yolinda Farnese",
-        "description": "Fale com a Yolinda pelo WhatsApp e use Instagram e localização como canais de apoio."
+        "title": "Contato | Yolanda Farnese",
+        "description": "Fale com a Yolanda pelo WhatsApp e use Instagram e localização como canais de apoio."
       },
       "privacy_policy": {
-        "title": "Política de Privacidade | Yolinda Farnese",
-        "description": "Leia a política inicial de privacidade e tratamento de dados do site da Yolinda Farnese."
+        "title": "Política de Privacidade | Yolanda Farnese",
+        "description": "Leia a política inicial de privacidade e tratamento de dados do site da Yolanda Farnese."
       }
     }
   },
@@ -32,7 +32,7 @@
     "back_to_portfolios": "Voltar para o portfolio"
   },
   "header": {
-    "brand_name": "Yolinda Farnese 🦇",
+    "brand_name": "Yolanda Farnese 🦇",
     "tagline": "Tattoo Artist - Fine Line & Blackwork",
     "navigation": {
       "home": "Início",
@@ -51,7 +51,7 @@
     }
   },
   "footer": {
-    "copyright": "©2026 Yolinda Farnese. Todos os direitos reservados.",
+    "copyright": "©2026 Yolanda Farnese. Todos os direitos reservados.",
     "developed_by": "Desenvolvido por PiKiTo Pages",
     "note": "Fine Line, Blackwork e atendimento direto para transformar referências em tatuagens com identidade visual.",
     "links": {
@@ -99,8 +99,8 @@
       }
     },
     "about": {
-      "title": "Sobre Yolinda Farnese",
-      "intro": "Sou Yolinda Farnese, Tattoo Artist em Uberlândia - MG. Meu trabalho parte do encontro entre a sua referência e a minha leitura artística, com foco em Fine Line e Blackwork.",
+      "title": "Sobre Yolanda Farnese",
+      "intro": "Sou Yolanda Farnese, Tattoo Artist em Uberlândia - MG. Meu trabalho parte do encontro entre a sua referência e a minha leitura artística, com foco em Fine Line e Blackwork.",
       "story": [
         "O objetivo deste site é dar uma base clara para portfolio, estilos e páginas de conteúdo sem depender de promessas vazias ou informações não confirmadas."      ],
       "highlights": [
@@ -121,7 +121,7 @@
       "category_label": "Categoria",
       "booking_cta": "Pedir orçamento",
       "not_found_title": "Página não encontrada",
-      "not_found_description": "Este conteúdo ainda não está disponível. Volte para a listagem ou fale com a Yolinda diretamente.",
+      "not_found_description": "Este conteúdo ainda não está disponível. Volte para a listagem ou fale com a Yolanda diretamente.",
       "gallery_title": "Galeria de referência",
       "gallery_empty_state": "A galeria será publicada via Prismic. Esta estrutura já aceita mídia sem expor o formato cru do CMS para a interface."
     },
@@ -133,7 +133,7 @@
         "business_type_label": "Ideia, estilo ou referência",
         "description_label": "Mensagem",
         "submit_label": "Enviar no WhatsApp",
-        "whatsapp_message_template": "Olá, Yolinda! Vim através do seu site. Meu nome é {name} e quero conversar sobre {projectType}. {description}"
+        "whatsapp_message_template": "Olá, Yolanda! Vim através do seu site. Meu nome é {name} e quero conversar sobre {projectType}. {description}"
       },
       "channels_title": "Outros caminhos de contato",
       "channels_intro": "Use o canal que fizer mais sentido para o que você precisa agora.",
