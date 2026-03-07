@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { SHOW_LOCALE_AND_THEME } from "@/shared/config/site";
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "@/shared/config/locales";
 import { resolveCanonicalPathAlias } from "@/shared/utils/routing";
 
@@ -28,6 +29,12 @@ export function middleware(request: NextRequest) {
 
   if (request.nextUrl.searchParams.has(INTERNAL_REWRITE_PARAM)) {
     return NextResponse.next();
+  }
+
+  // When locale/theme selection is disabled, redirect en-us to pt-br (default locale)
+  if (!SHOW_LOCALE_AND_THEME && OTHER_LOCALE_REGEX.test(pathname)) {
+    const rest = pathname.replace(new RegExp(`^/(${OTHER_LOCALES.join("|")})`), "") || "/";
+    return NextResponse.redirect(buildRedirectUrl(request, rest || "/"));
   }
 
   if (DEFAULT_LOCALE_REGEX.test(pathname)) {

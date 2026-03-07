@@ -11,9 +11,9 @@
   --border-soft: #cfc7be;
   --text-soft: #49433d;
   --text-muted: #706860;
-  --brand: #a63a37;
-  --brand-dark: #7c2421;
-  --brand-light: #e4bbb8;
+  --brand: #a31111;
+  --brand-dark: #700d0d;
+  --brand-light: #c75050;
   color-scheme: light;
 }
 
@@ -26,9 +26,9 @@
   --border-soft: #343434;
   --text-soft: #d2ccc4;
   --text-muted: #a59e96;
-  --brand: #c74b47;
-  --brand-dark: #9f322f;
-  --brand-light: #e7b3b0;
+  --brand: #e52020;
+  --brand-dark: #8b1515;
+  --brand-light: #c91111;
   color-scheme: dark;
 }
 
@@ -115,7 +115,7 @@ a {
     background-color: var(--brand-dark) !important;
   }
   .dark\:bg-brand\/20:is(.dark *) {
-    background-color: rgb(199 75 71 / 0.2) !important;
+    background-color: rgb(229 32 32 / 0.2) !important;
   }
   .dark\:text-brand-light:is(.dark *) {
     color: var(--brand-light) !important;

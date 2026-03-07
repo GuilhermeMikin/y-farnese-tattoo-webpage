@@ -69,11 +69,19 @@
         "secondary_cta": "View portfolio"
       },
       "trust": {
-        "title": "Signature and context",
-        "bullets": [
-          "Fine Line and Blackwork as the main focus",
-          "Based in Uberlandia - MG",
-          "Active portfolio and direct WhatsApp contact"
+        "cards": [
+          {
+            "title": "Idea and quote",
+            "description": "Share your idea via WhatsApp. We'll discuss size, style, and placement of the tattoo."
+          },
+          {
+            "title": "Design creation",
+            "description": "I develop the original design based on your idea and my Fine Line & Blackwork style."
+          },
+          {
+            "title": "Tattoo session",
+            "description": "Session done with sterilized materials, precise linework, and focus on delicate results."
+          }
         ]
       },
       "featured_portfolios": {

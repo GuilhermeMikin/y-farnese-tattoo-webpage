@@ -35,6 +35,9 @@ export const PHONE_NUMBER = businessInfo.phone_number;
 export const DEFAULT_OG_IMAGE = "/yfarnese2.png";
 export const THEME_STORAGE_KEY = "y-farnese-theme";
 
+/** When false, locale and theme selection are hidden. Default: pt-br, dark. Set to true to re-enable. */
+export const SHOW_LOCALE_AND_THEME = false;
+
 export function buildAbsoluteUrl(path: string): string {
   return new URL(path, SITE_URL).toString();
 }

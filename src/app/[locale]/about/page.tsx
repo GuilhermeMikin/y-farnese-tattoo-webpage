@@ -75,7 +75,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
         </div>
 
         <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-white/40 bg-white/30 shadow-xl shadow-brand/10">
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f1ec_0%,#d9d1c7_40%,#a63a37_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,#f4f1ec_0%,#d9d1c7_40%,#a31111_100%)]" />
           <Image
             src="/yfarnese2.png"
             alt={siteSettings.brandName}

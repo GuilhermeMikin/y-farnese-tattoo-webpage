@@ -67,8 +67,7 @@ export interface LocaleMessages {
         secondary_cta: string;
       };
       trust: {
-        title: string;
-        bullets: string[];
+        cards: Array<{ title: string; description: string }>;
       };
       featured_portfolios: {
         title: string;

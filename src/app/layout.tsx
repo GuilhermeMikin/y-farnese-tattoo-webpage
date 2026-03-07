@@ -9,6 +9,7 @@ import {
   SITE_TITLE,
   SITE_URL,
   THEME_STORAGE_KEY,
+  SHOW_LOCALE_AND_THEME,
 } from "@/shared/config/site";
 
 export const metadata: Metadata = {
@@ -23,10 +24,11 @@ export const metadata: Metadata = {
 const themeScript = `
 (() => {
   try {
+    const showLocaleAndTheme = ${SHOW_LOCALE_AND_THEME};
     const storageKey = "${THEME_STORAGE_KEY}";
     const root = document.documentElement;
-    const storedTheme = localStorage.getItem(storageKey);
-    const theme = storedTheme === "light" || storedTheme === "dark" ? storedTheme : "dark";
+    const storedTheme = showLocaleAndTheme ? localStorage.getItem(storageKey) : null;
+    const theme = showLocaleAndTheme && (storedTheme === "light" || storedTheme === "dark") ? storedTheme : "dark";
 
     root.classList.toggle("dark", theme === "dark");
     root.style.colorScheme = theme;

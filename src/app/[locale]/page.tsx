@@ -82,14 +82,14 @@ export default async function HomePage({ params }: HomePageProps) {
       </section>
 
       <section className="grid gap-4 md:grid-cols-3">
-        {home.trust.bullets.map((bullet) => (
-          <article key={bullet} className="section-card min-h-36 p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-dark dark:text-brand-light">
-              {home.trust.title}
-            </p>
-            <h2 className="mt-5 text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
-              {bullet}
+        {home.trust.cards.map((card) => (
+          <article key={card.title} className="section-card min-h-36 p-6">
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+              {card.title}
             </h2>
+            <ul className="mt-5 list-inside list-disc space-y-1 text-base text-slate-700 dark:text-slate-300">
+              <li>{card.description}</li>
+            </ul>
           </article>
         ))}
       </section>

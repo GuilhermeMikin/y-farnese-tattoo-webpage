@@ -1,10 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { getLocalePath, pathnameToPathSegment } from "@/shared/config/locales";
+import { SHOW_LOCALE_AND_THEME } from "@/shared/config/site";
 import ThemeSwitch from "@/shared/components/ThemeSwitch";
 import LocaleDropdown from "@/shared/components/LocaleDropdown";
 import type { LocaleMessages, SupportedLocale } from "@/shared/types/locale";
@@ -24,7 +26,8 @@ function NavLinks({
   isAbout,
   isPortfolios,
   isContact,
-  onLinkClick
+  onLinkClick,
+  hideWhatsApp = false
 }: {
   locale: SupportedLocale;
   header: LocaleMessages["header"];
@@ -34,6 +37,7 @@ function NavLinks({
   isPortfolios: boolean;
   isContact: boolean;
   onLinkClick?: () => void;
+  hideWhatsApp?: boolean;
 }) {
   return (
     <>
@@ -65,15 +69,17 @@ function NavLinks({
       >
         {header.navigation.contact}
       </Link>
-      <a
-        href={siteSettings.whatsappHref}
-        target="_blank"
-        rel="noreferrer"
-        onClick={onLinkClick}
-        className="inline-flex min-h-11 items-center rounded-full bg-brand px-4 py-2 text-[0.81rem] font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
-      >
-        {siteSettings.primaryCtaLabel}
-      </a>
+      {!hideWhatsApp && (
+        <a
+          href={siteSettings.whatsappHref}
+          target="_blank"
+          rel="noreferrer"
+          onClick={onLinkClick}
+          className="inline-flex min-h-11 items-center rounded-full bg-brand px-4 py-2 text-[0.81rem] font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
+        >
+          {siteSettings.primaryCtaLabel}
+        </a>
+      )}
     </>
   );
 }
@@ -116,17 +122,28 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
 
   return (
     <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-slate-800 dark:bg-slate-900/95">
-      <div className="container-page flex items-center justify-between gap-3 py-3">
-        {/* Brand + tagline - always visible */}
-        <Link href={getLocalePath(locale)} className="min-w-0 flex-1 space-y-0.5">
-          <span className="text-[1.44rem] font-bold leading-tight tracking-tight text-brand-dark dark:text-brand-light">
-            {header.brand_name}
+      <div className="container-page flex items-stretch justify-between gap-3 py-2.5">
+        {/* Icon + Brand + tagline - always visible */}
+        <Link href={getLocalePath(locale)} className="flex min-w-0 flex-1 items-center gap-3">
+          <span className="flex h-full flex-shrink-0 items-center">
+            <Image
+              src="/icon.png"
+              alt=""
+              width={64}
+              height={64}
+              className="h-[90%] w-auto object-contain"
+            />
           </span>
-          <p className="text-[0.73rem] leading-tight text-slate-600 dark:text-slate-300">{siteSettings.tagline}</p>
+          <span className="space-y-0.5">
+            <span className="block text-[1.3rem] font-bold leading-tight tracking-tight text-brand-dark dark:text-brand-light">
+              {header.brand_name}
+            </span>
+            <p className="text-[0.73rem] leading-tight text-slate-600 dark:text-slate-300">{siteSettings.tagline}</p>
+          </span>
         </Link>
 
         {/* Desktop nav - hidden on mobile */}
-        <nav className="hidden items-center gap-3 text-[0.81rem] font-medium text-slate-700 dark:text-slate-200 md:flex">
+        <nav className="hidden items-center gap-3 self-center text-[0.81rem] font-medium text-slate-700 dark:text-slate-200 md:flex">
           <NavLinks
             locale={locale}
             header={header}
@@ -138,14 +155,16 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
           />
         </nav>
 
-        {/* Desktop language + theme - hidden on mobile */}
-        <div className="hidden items-center gap-3 md:flex">
-          <LocaleDropdown locale={locale} />
-          <ThemeSwitch
-            lightLabel={header.theme.light_label}
-            darkLabel={header.theme.dark_label}
-          />
-        </div>
+        {/* Desktop language + theme - hidden on mobile. Disabled when SHOW_LOCALE_AND_THEME is false. */}
+        {SHOW_LOCALE_AND_THEME && (
+          <div className="hidden items-center gap-3 self-center md:flex">
+            <LocaleDropdown locale={locale} />
+            <ThemeSwitch
+              lightLabel={header.theme.light_label}
+              darkLabel={header.theme.dark_label}
+            />
+          </div>
+        )}
 
         {/* Hamburger button - visible only on mobile */}
         <button
@@ -153,7 +172,7 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
           onClick={() => setIsMenuOpen((prev) => !prev)}
           aria-label={isMenuOpen ? header.menu_close_label : header.menu_open_label}
           aria-expanded={isMenuOpen}
-          className="flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 md:hidden"
+          className="flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-1 self-center rounded-xl border border-slate-200 bg-white text-slate-700 transition-colors hover:bg-slate-50 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:bg-slate-800 md:hidden"
         >
           <span
             className={`h-0.5 w-5 rounded-full bg-current transition-all ${
@@ -207,15 +226,30 @@ export default function Sidebar({ locale, header, siteSettings }: SidebarProps) 
               isPortfolios={isPortfolios}
               isContact={isContact}
               onLinkClick={closeMenu}
+              hideWhatsApp={!SHOW_LOCALE_AND_THEME}
             />
           </nav>
 
           <div className="mt-auto flex flex-row flex-wrap items-center gap-3 border-t border-slate-200 pt-5 dark:border-slate-700">
-            <LocaleDropdown locale={locale} onSelect={closeMenu} />
-            <ThemeSwitch
-              lightLabel={header.theme.light_label}
-              darkLabel={header.theme.dark_label}
-            />
+            {SHOW_LOCALE_AND_THEME ? (
+              <>
+                <LocaleDropdown locale={locale} onSelect={closeMenu} />
+                <ThemeSwitch
+                  lightLabel={header.theme.light_label}
+                  darkLabel={header.theme.dark_label}
+                />
+              </>
+            ) : (
+              <a
+                href={siteSettings.whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                onClick={closeMenu}
+                className="inline-flex min-h-11 items-center rounded-full bg-brand px-4 py-2 text-[0.81rem] font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
+              >
+                {siteSettings.primaryCtaLabel}
+              </a>
+            )}
           </div>
         </aside>
       </div>,

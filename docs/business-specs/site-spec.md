@@ -120,9 +120,9 @@ Initial palette direction is based on the references note (`black, grey, white a
 | Soft border | `#CFC7BE` | Subtle borders |
 | Secondary text | `#49433D` | Supporting text |
 | Muted text | `#706860` | Lower-emphasis text |
-| **Brand primary** | `#A63A37` | Main buttons and strong accents |
-| Brand dark | `#7C2421` | Hover states and darker accents |
-| Brand light | `#E4BBB8` | Soft highlight backgrounds |
+| **Brand primary** | `#A31111` | Main buttons and strong accents |
+| Brand dark | `#700D0D` | Hover states and darker accents |
+| Brand light | `#C75050` | Soft highlight backgrounds |
 | Accent 1 | `#8A8681` | Neutral accent |
 | Accent 2 | `#D9D1C7` | Warm neutral accent |
 
@@ -137,9 +137,9 @@ Initial palette direction is based on the references note (`black, grey, white a
 | Soft border | `#343434` | Subtle borders |
 | Secondary text | `#D2CCC4` | Supporting text |
 | Muted text | `#A59E96` | Lower-emphasis text |
-| **Brand primary** | `#C74B47` | Main brand color |
-| Brand dark | `#9F322F` | Hover and contrast accents |
-| Brand light | `#E7B3B0` | Highlight surfaces |
+| **Brand primary** | `#E52020` | Main brand color |
+| Brand dark | `#8B1515` | Hover and contrast accents |
+| Brand light | `#D45050` | Highlight surfaces |
 | Accent 1 | `#8E8A84` | Neutral accent |
 | Accent 2 | `#B7AEA4` | Warm neutral accent |
 
