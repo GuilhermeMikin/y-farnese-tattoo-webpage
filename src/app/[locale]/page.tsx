@@ -6,6 +6,7 @@ import { buildAbsoluteUrl } from "@/shared/config/site";
 import { createPortfolioAdapter } from "@/shared/prismic/portfolio-adapter";
 import { createSiteSettingsAdapter } from "@/shared/prismic/site-settings-adapter";
 import { transformLocaleData } from "@/shared/utils/transformLocaleData";
+import { PortfolioCardCarousel } from "@/shared/components/PortfolioCardCarousel";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;
@@ -111,24 +112,30 @@ export default async function HomePage({ params }: HomePageProps) {
             {messages.common.learn_more}
           </Link>
         </div>
-        <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {portfolio.slice(0, 4).map((portfolio) => (
-            <article key={portfolio.slug} className="rounded-3xl border border-slate-200 bg-white/70 p-5 dark:border-slate-800 dark:bg-slate-950/40">
+        <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {portfolio.slice(0, 4).map((item) => (
+            <article key={item.slug} className="section-card flex h-full flex-col p-5">
+              <PortfolioCardCarousel
+                images={item.carouselImages}
+                labels={messages.pages.home.portfolio.gallery_labels}
+              />
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-dark dark:text-brand-light">
-                {portfolio.category}
+                {item.category}
               </p>
-              <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-slate-100">
-                {portfolio.title}
+              <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
+                {item.title}
               </h3>
-              <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                {portfolio.description}
+              <p className="mb-4 mt-2 text-sm text-slate-700 dark:text-slate-300">
+                {item.description}
               </p>
-              <Link
-                href={getLocalePath(safeLocale, `portfolio/${portfolio.slug}`)}
-                className="mt-5 inline-flex min-h-11 items-center rounded-full bg-brand-light px-4 py-2 text-sm font-semibold text-brand-dark hover:bg-brand dark:bg-brand/20 dark:text-brand-light"
-              >
-                {home.featured_portfolios.details_cta}
-              </Link>
+              <div className="mt-auto flex flex-wrap gap-3">
+                <Link
+                  href={getLocalePath(safeLocale, `portfolio/${item.slug}`)}
+                  className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
+                >
+                  {home.featured_portfolios.details_cta}
+                </Link>
+              </div>
             </article>
           ))}
         </div>

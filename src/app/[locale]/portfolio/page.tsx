@@ -5,6 +5,7 @@ import { buildAbsoluteUrl } from "@/shared/config/site";
 import { createPortfolioAdapter } from "@/shared/prismic/portfolio-adapter";
 import { createSiteSettingsAdapter } from "@/shared/prismic/site-settings-adapter";
 import { transformLocaleData } from "@/shared/utils/transformLocaleData";
+import { PortfolioCardCarousel } from "@/shared/components/PortfolioCardCarousel";
 
 type PortfoliosPageProps = {
   params: Promise<{ locale: string }>;
@@ -53,25 +54,26 @@ export default async function PortfoliosPage({ params }: PortfoliosPageProps) {
           {portfoliosPage.empty_state}
         </section>
       ) : (
-        <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {portfolio.map((portfolio) => (
-            <article key={portfolio.slug} className="section-card flex h-full flex-col p-6">
+        <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          {portfolio.map((item) => (
+            <article key={item.slug} className="section-card flex h-full flex-col p-5">
+              <PortfolioCardCarousel
+                images={item.carouselImages}
+                labels={messages.pages.home.portfolio.gallery_labels}
+              />
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-dark dark:text-brand-light">
                 {portfoliosPage.category_label}
               </p>
-              <h2 className="mt-4 text-2xl font-semibold text-slate-900 dark:text-slate-100">
-                {portfolio.title}
+              <h2 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
+                {item.title}
               </h2>
-              <p className="mt-2 text-sm font-medium text-brand-dark dark:text-brand-light">
-                {portfolio.category}
+              <p className="mb-4 mt-2 text-sm text-slate-700 dark:text-slate-300">
+                {item.description}
               </p>
-              <p className="mt-4 flex-1 text-sm leading-6 text-slate-700 dark:text-slate-300">
-                {portfolio.description}
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-auto flex flex-wrap gap-3">
                 <Link
-                  href={getLocalePath(safeLocale, `portfolio/${portfolio.slug}`)}
-                  className="inline-flex min-h-11 items-center rounded-full bg-brand px-5 py-3 text-sm font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
+                  href={getLocalePath(safeLocale, `portfolio/${item.slug}`)}
+                  className="rounded-lg bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark dark:bg-brand-dark dark:hover:bg-brand"
                 >
                   {messages.common.learn_more}
                 </Link>
@@ -79,7 +81,7 @@ export default async function PortfoliosPage({ params }: PortfoliosPageProps) {
                   href={siteSettings.whatsappHref}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex min-h-11 items-center rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand-dark dark:border-slate-700 dark:text-slate-200"
+                  className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-brand hover:text-brand-dark dark:border-slate-700 dark:text-slate-200"
                 >
                   {portfoliosPage.booking_cta}
                 </a>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getLocalePath } from "@/shared/config/locales";
@@ -6,6 +7,7 @@ import { buildAbsoluteUrl, SITE_NAME } from "@/shared/config/site";
 import { createPortfolioAdapter } from "@/shared/prismic/portfolio-adapter";
 import { createSiteSettingsAdapter } from "@/shared/prismic/site-settings-adapter";
 import { transformLocaleData } from "@/shared/utils/transformLocaleData";
+import { PortfolioWorkGallery } from "@/shared/components/PortfolioWorkGallery";
 
 type PortfolioDetailPageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -105,15 +107,53 @@ export default async function PortfolioDetailPage({
         </div>
       </section>
 
+      {portfolio.works.length > 0 && (
+        <section className="section-card p-7 md:p-9">
+          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+            {detail.works_title}
+          </h2>
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {portfolio.works.map((work, index) => (
+              <article
+                key={`${work.title}-${index}`}
+                className="section-card flex flex-col p-5"
+              >
+                <PortfolioWorkGallery
+                  images={work.galleryImages}
+                  labels={messages.pages.home.portfolio.gallery_labels}
+                />
+                <h3 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-100">
+                  {work.title}
+                </h3>
+                {work.description && (
+                  <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">
+                    {work.description}
+                  </p>
+                )}
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
       <section className="section-card p-7 md:p-9">
         <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
           {detail.gallery_title}
         </h2>
         {portfolio.beforeAfterImages.length > 0 ? (
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {portfolio.beforeAfterImages.map((image) => (
-              <div key={image.src} className="rounded-3xl border border-slate-200 bg-white/80 p-4 text-sm dark:border-slate-800 dark:bg-slate-950/40">
-                {image.alt}
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {portfolio.beforeAfterImages.map((image, index) => (
+              <div
+                key={`${image.src}-${index}`}
+                className="relative aspect-video overflow-hidden rounded-xl border border-slate-200 bg-slate-100 dark:border-slate-700 dark:bg-slate-900"
+              >
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 95vw"
+                />
               </div>
             ))}
           </div>

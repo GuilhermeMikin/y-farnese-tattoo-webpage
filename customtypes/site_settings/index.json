@@ -1,7 +1,7 @@
 {
   "format": "custom",
   "id": "site_settings",
-  "label": "Site Settings",
+  "label": "Configurações do Site",
   "repeatable": false,
   "status": true,
   "json": {
@@ -9,7 +9,7 @@
       "brand_name": {
         "type": "Text",
         "config": {
-          "label": "Brand Name",
+          "label": "Nome da marca",
           "placeholder": "Yolanda Farnese",
           "useAsTitle": true
         }
@@ -17,49 +17,49 @@
       "tagline": {
         "type": "Text",
         "config": {
-          "label": "Tagline",
+          "label": "Slogan",
           "placeholder": "Tattoo Artist - Fine Line & Blackwork"
         }
       },
       "primary_cta_label": {
         "type": "Text",
         "config": {
-          "label": "Primary CTA Label",
+          "label": "Texto do botão principal",
           "placeholder": "Agendar atendimento"
         }
       },
       "whatsapp_link": {
         "type": "Link",
         "config": {
-          "label": "WhatsApp Link",
+          "label": "Link do WhatsApp",
           "select": "web"
         }
       },
       "instagram_link": {
         "type": "Link",
         "config": {
-          "label": "Instagram Link",
+          "label": "Link do Instagram",
           "select": "web"
         }
       },
       "maps_link": {
         "type": "Link",
         "config": {
-          "label": "Maps Link",
+          "label": "Link do Google Maps",
           "select": "web"
         }
       },
       "address_label": {
         "type": "Text",
         "config": {
-          "label": "Address Label",
+          "label": "Endereço (curto)",
           "placeholder": "Uberlândia - MG"
         }
       },
       "address_full": {
         "type": "Text",
         "config": {
-          "label": "Full Address",
+          "label": "Endereço completo",
           "placeholder": "Uberlândia - MG"
         }
       }

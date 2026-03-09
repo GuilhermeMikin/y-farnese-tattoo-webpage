@@ -19,7 +19,7 @@ export const repositoryName =
  */
 const routes: Route[] = [
   { type: "site_settings", path: "/" },
-  { type: "portfolio", path: "/portfolio/:uid" },
+  { type: "categoria", path: "/portfolio/:uid" },
 ];
 
 /**

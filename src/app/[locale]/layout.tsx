@@ -10,9 +10,9 @@ import {
   DEFAULT_OG_IMAGE,
   SITE_NAME,
 } from "@/shared/config/site";
+import FloatingActions from "@/shared/components/FloatingActions";
 import Footer from "@/shared/components/Footer";
 import Sidebar from "@/shared/components/Sidebar";
-import WhatsAppFab from "@/shared/components/WhatsAppFab";
 import { createSiteSettingsAdapter } from "@/shared/prismic/site-settings-adapter";
 import { transformLocaleData } from "@/shared/utils/transformLocaleData";
 
@@ -72,9 +72,12 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       <Sidebar locale={safeLocale} header={messages.header} siteSettings={siteSettings} />
       <main className="container-page py-10">{children}</main>
       <Footer messages={messages.footer} siteSettings={siteSettings} />
-      <WhatsAppFab
-        href={siteSettings.whatsappHref}
-        label={siteSettings.primaryCtaLabel}
+      <FloatingActions
+        whatsappHref={siteSettings.whatsappHref}
+        instagramHref={siteSettings.instagramHref}
+        whatsappLabel={siteSettings.primaryCtaLabel}
+        instagramLabel={messages.pages.contact.instagram_label}
+        backToTopLabel={messages.pages.home.floating_actions.back_to_top_label}
       />
     </div>
   );

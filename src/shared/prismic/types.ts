@@ -29,12 +29,21 @@ export type PortfolioSummaryData = {
   category: string;
   description: string;
   ctaLabel: string;
+  carouselImages: MediaImage[];
   source: ContentSource;
+};
+
+export type WorkSummaryData = {
+  title: string;
+  description: string;
+  coverImage: MediaImage | null;
+  galleryImages: MediaImage[];
 };
 
 export type PortfolioDetailData = PortfolioSummaryData & {
   body: string[];
   beforeAfterImages: MediaImage[];
+  works: WorkSummaryData[];
 };
 
 export type PortfolioRouteRef = {

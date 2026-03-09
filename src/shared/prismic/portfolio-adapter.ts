@@ -1,18 +1,22 @@
 import "server-only";
 import { cache } from "react";
 import type * as prismic from "@prismicio/client";
+import { filter } from "@prismicio/client";
 import { createPrismicClient } from "./client";
 import { toPrismicLocale } from "./locales";
 import { readTextField } from "./helpers";
+import { transformLocaleData } from "@/shared/utils/transformLocaleData";
 import type {
-  PrismicDocumentData,
   PortfolioAdapter,
   PortfolioDetailData,
   PortfolioRouteRef,
   PortfolioSummaryData,
+  WorkSummaryData,
 } from "./types";
-
 import type { SupportedLocale } from "@/shared/types/locale";
+
+const CATEGORIA_TYPE = "categoria";
+const TRABALHO_TYPE = "trabalho";
 
 type FallbackPortfolio = Omit<PortfolioDetailData, "locale" | "source">;
 
@@ -24,11 +28,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Estilo",
       description: "Traços delicados, composição leve e leitura precisa para ideias que pedem sutileza.",
       ctaLabel: "Pedir orçamento",
-      body: [
-        "Esta rota já está pronta para receber descrição editorial, referências e galeria via Prismic.",
-        "Use este placeholder para validar navegação, shell e estrutura de conteúdo sem depender do CMS preenchido.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "blackwork",
@@ -36,10 +39,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Estilo",
       description: "Composições de maior contraste e presença visual para propostas com peso gráfico mais marcado.",
       ctaLabel: "Pedir orçamento",
-      body: [
-        "A modelagem atual suporta resumo, corpo, CTA e galeria sem expor shapes crus do Prismic para a UI.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "lettering-symbols",
@@ -47,10 +50,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Portfólio",
       description: "Categoria inicial para trabalhos com frases curtas, palavras, símbolos e composições minimalistas.",
       ctaLabel: "Pedir orçamento",
-      body: [
-        "As nomenclaturas finais ainda dependem de confirmação editorial, mas a estrutura da rota permanece estável.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "covered-piece",
@@ -58,10 +61,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Portfólio",
       description: "Coberturas ou reformas de tatuagens existentes.",
       ctaLabel: "Pedir orçamento",
-      body: [
-        "Quando o conteúdo estiver no Prismic, esta página pode receber narrativa de estilo, galeria e FAQs específicas.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
   ],
   "en-us": [
@@ -71,10 +74,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Style",
       description: "Delicate linework and lighter compositions for ideas that need precision without visual weight.",
       ctaLabel: "Request quote",
-      body: [
-        "This route is ready to receive editorial copy, references, and gallery content from Prismic.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "blackwork",
@@ -82,10 +85,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Style",
       description: "Higher-contrast compositions for tattoo ideas with a stronger graphic presence.",
       ctaLabel: "Request quote",
-      body: [
-        "The current model already separates adapter output from UI so the final CMS content can drop in safely.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "lettering-symbols",
@@ -93,10 +96,10 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Portfolio",
       description: "Initial category for short phrases, symbols, and more minimal tattoo compositions.",
       ctaLabel: "Request quote",
-      body: [
-        "Final naming still depends on editorial confirmation, but the route contract is already stable.",
-      ],
+      body: [],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
     {
       slug: "illustrated-pieces",
@@ -104,15 +107,13 @@ const FALLBACK_PORTFOLIOS: Record<SupportedLocale, FallbackPortfolio[]> = {
       category: "Portfolio",
       description: "Initial grouping for illustrated work observed in the current visual references.",
       ctaLabel: "Request quote",
-      body: [
-        "Once content is published in Prismic, this page can receive style narrative, gallery content, and supporting FAQ.",
-      ],
+      body: [ ],
       beforeAfterImages: [],
+      carouselImages: [],
+      works: [],
     },
   ],
 };
-
-const PORTFOLIO_TYPE = "portfolio";
 
 function mapFallbackPortfolio(locale: SupportedLocale, portfolio: FallbackPortfolio): PortfolioDetailData {
   return {
@@ -122,51 +123,74 @@ function mapFallbackPortfolio(locale: SupportedLocale, portfolio: FallbackPortfo
   };
 }
 
-function mapPrismicPortfolioDocument(
-  locale: SupportedLocale,
-  document: prismic.PrismicDocument<PrismicDocumentData>,
-  fallback: PortfolioDetailData,
-): PortfolioDetailData {
-  const galleryField = Array.isArray(document.data.before_after_gallery)
-    ? document.data.before_after_gallery
-    : [];
-  const beforeAfterImages = galleryField
+function extractGalleryFromWork(
+  workData: prismic.PrismicDocument["data"],
+  fallbackAlt: string,
+): { src: string; alt: string }[] {
+  const data = (workData ?? {}) as Record<string, unknown>;
+  const galleryField = Array.isArray(data.gallery_images) ? data.gallery_images : [];
+  return galleryField
     .map((item) => {
-      if (!item || typeof item !== "object") {
-        return null;
-      }
-
+      if (!item || typeof item !== "object") return null;
       const image = "image" in item ? (item as { image?: { url?: string } }).image : null;
       const alt = "image_alt" in item ? readTextField((item as { image_alt?: unknown }).image_alt) : null;
-
-      if (!image?.url) {
-        return null;
-      }
-
-      return {
-        src: image.url,
-        alt: alt ?? fallback.title,
-      };
+      if (!image?.url) return null;
+      return { src: image.url, alt: alt ?? fallbackAlt };
     })
     .filter((item): item is { src: string; alt: string } => Boolean(item));
+}
 
-  const bodyValue = document.data.body;
+function mapTrabalhoToWorkSummary(work: prismic.PrismicDocument): WorkSummaryData {
+  const workTitle = readTextField(work.data?.title) ?? "";
+  const workDescription = readTextField(work.data?.description) ?? "";
+  const images = extractGalleryFromWork(work.data, workTitle);
+  const coverImage = images.length > 0 ? images[0] : null;
+  return {
+    title: workTitle,
+    description: workDescription,
+    coverImage,
+    galleryImages: images,
+  };
+}
+
+function mapCategoriaToPortfolioDetail(
+  locale: SupportedLocale,
+  categoriaDoc: prismic.PrismicDocument,
+  trabalhos: prismic.PrismicDocument[],
+  fallback: PortfolioDetailData,
+): PortfolioDetailData {
+  const data = categoriaDoc.data ?? {};
+  const description = readTextField(data.page_description) ?? fallback.description;
+  const bodyValue = data.page_description;
   const body = Array.isArray(bodyValue)
-    ? bodyValue
+    ? (bodyValue as unknown[])
         .map((entry) => readTextField(entry))
         .filter((entry): entry is string => Boolean(entry))
     : fallback.body;
 
+  const beforeAfterImages: { src: string; alt: string }[] = [];
+  const works: WorkSummaryData[] = [];
+  for (const work of trabalhos) {
+    const workTitle = readTextField(work.data?.title) ?? fallback.title;
+    const images = extractGalleryFromWork(work.data, workTitle);
+    beforeAfterImages.push(...images);
+    works.push(mapTrabalhoToWorkSummary(work));
+  }
+
+  const { messages } = transformLocaleData(locale);
+  const ctaLabel = messages.pages.portfolio_detail.booking_cta;
+
   return {
-    ...fallback,
-    slug: document.uid ?? fallback.slug,
+    slug: categoriaDoc.uid ?? fallback.slug,
     locale,
-    title: readTextField(document.data.title) ?? fallback.title,
-    category: readTextField(document.data.category) ?? fallback.category,
-    description: readTextField(document.data.summary) ?? fallback.description,
-    ctaLabel: readTextField(document.data.cta_label) ?? fallback.ctaLabel,
+    title: readTextField(data.title) ?? fallback.title,
+    category: "Categoria",
+    description,
+    ctaLabel,
+    carouselImages: beforeAfterImages,
     body: body.length > 0 ? body : fallback.body,
-    beforeAfterImages,
+    beforeAfterImages: beforeAfterImages.length > 0 ? beforeAfterImages : fallback.beforeAfterImages,
+    works,
     source: "prismic",
   };
 }
@@ -183,20 +207,38 @@ const listPortfoliosUncached = async (locale: SupportedLocale): Promise<Portfoli
   }
 
   try {
-    const documents = (await client.getAllByType(PORTFOLIO_TYPE, {
+    const categorias = await client.getAllByType(CATEGORIA_TYPE, {
       lang: toPrismicLocale(locale),
-      orderings: [{ field: "my.portfolio.title", direction: "asc" }],
-    })) as prismic.PrismicDocument<PrismicDocumentData>[];
+      orderings: [
+        { field: "my.categoria.order", direction: "asc" },
+        { field: "document.first_publication_date", direction: "asc" },
+      ],
+    });
 
-    if (documents.length === 0) {
+    if (categorias.length === 0) {
       return fallback;
     }
 
-    return documents.map((document, index) =>
-      mapPrismicPortfolioDocument(locale, document, fallback[index] ?? fallback[0]),
-    );
+    const result: PortfolioDetailData[] = [];
+    for (let i = 0; i < categorias.length; i++) {
+      const cat = categorias[i];
+      const catId = cat.id;
+      const trabalhos = await client.getAllByType(TRABALHO_TYPE, {
+        lang: toPrismicLocale(locale),
+        filters: [filter.at("my.trabalho.categorias.categoria", catId)],
+        orderings: [
+          { field: "my.trabalho.order", direction: "asc" },
+          { field: "document.first_publication_date", direction: "asc" },
+        ],
+      });
+
+      const fallbackItem = fallback[i] ?? fallback[0];
+      result.push(mapCategoriaToPortfolioDetail(locale, cat, trabalhos, fallbackItem));
+    }
+
+    return result;
   } catch (error) {
-    console.error(`[prismic] Failed to load portfolio for locale '${locale}'.`, error);
+    console.error(`[prismic] Failed to load portfolio (categorias/trabalhos) for locale '${locale}'.`, error);
     return fallback;
   }
 };
@@ -210,13 +252,14 @@ const portfolioAdapter: PortfolioAdapter = {
   async list(locale) {
     const portfolio = await listPortfolios(locale);
     return portfolio.map<PortfolioSummaryData>(
-      ({ slug, locale: portfolioLocale, title, category, description, ctaLabel, source }) => ({
+      ({ slug, locale: portfolioLocale, title, category, description, ctaLabel, carouselImages, source }) => ({
         slug,
         locale: portfolioLocale,
         title,
         category,
         description,
         ctaLabel,
+        carouselImages: carouselImages ?? [],
         source,
       }),
     );
@@ -224,17 +267,17 @@ const portfolioAdapter: PortfolioAdapter = {
 
   async getBySlug(locale, slug) {
     const portfolio = await listPortfolios(locale);
-    return portfolio.find((portfolio) => portfolio.slug === slug) ?? null;
+    return portfolio.find((p) => p.slug === slug) ?? null;
   },
 
   async listRouteRefs() {
     const entries = await Promise.all(
       (["pt-br", "en-us"] as const).map(async (locale) => {
         const portfolio = await listPortfolios(locale);
-        return portfolio.map<PortfolioRouteRef>((portfolio) => ({
+        return portfolio.map<PortfolioRouteRef>((p) => ({
           locale,
-          slug: portfolio.slug,
-          source: portfolio.source,
+          slug: p.slug,
+          source: p.source,
         }));
       }),
     );

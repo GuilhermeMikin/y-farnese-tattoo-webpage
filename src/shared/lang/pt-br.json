@@ -85,10 +85,24 @@
           }
         ]
       },
+      "floating_actions": {
+        "back_to_top_label": "Voltar ao topo"
+      },
       "featured_portfolios": {
         "title": "Portfólio em destaque",
         "description": "Veja alguns dos meus trabalhos em destaque. Para ver mais, acesse o portfolio completo.",
         "details_cta": "Ver mais"
+      },
+      "portfolio": {
+        "gallery_labels": {
+          "expand_image": "Expandir imagem {n}",
+          "previous_image": "Imagem anterior",
+          "next_image": "Próxima imagem",
+          "show_image": "Mostrar imagem {n}",
+          "close_expanded_image": "Fechar imagem",
+          "expanded_view": "Visualização ampliada",
+          "no_images": "Sem imagens"
+        }
       },
       "contact_strip": {
         "title": "Pronto (a) para tirar a ideia do papel?",
@@ -120,6 +134,7 @@
     "portfolio_detail": {
       "category_label": "Categoria",
       "booking_cta": "Pedir orçamento",
+      "works_title": "Trabalhos",
       "not_found_title": "Página não encontrada",
       "not_found_description": "Este conteúdo ainda não está disponível. Volte para a listagem ou fale com a Yolanda diretamente.",
       "gallery_title": "Galeria de referência",

@@ -1,0 +1,82 @@
+{
+  "format": "custom",
+  "id": "trabalho",
+  "label": "Trabalho",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug (URL)",
+          "placeholder": "ex: tatuagem-1"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Título",
+          "placeholder": "Título do trabalho",
+          "useAsTitle": true
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição",
+          "placeholder": "Descrição do trabalho",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "categorias": {
+        "type": "Group",
+        "config": {
+          "label": "Categorias",
+          "fields": {
+            "categoria": {
+              "type": "Link",
+              "config": {
+                "select": "document",
+                "customtypes": ["categoria"],
+                "label": "Categoria",
+                "placeholder": "Selecione uma categoria"
+              }
+            }
+          }
+        }
+      },
+      "gallery_images": {
+        "type": "Group",
+        "config": {
+          "label": "Galeria de imagens",
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Imagem",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "image_alt": {
+              "type": "Text",
+              "config": {
+                "label": "Texto alternativo",
+                "placeholder": "Descrição da imagem"
+              }
+            }
+          }
+        }
+      },
+      "order": {
+        "type": "Number",
+        "config": {
+          "label": "Ordem",
+          "placeholder": "0"
+        }
+      }
+    }
+  }
+}

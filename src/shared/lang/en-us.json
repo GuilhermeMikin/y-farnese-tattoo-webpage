@@ -85,6 +85,20 @@
           }
         ]
       },
+      "portfolio": {
+        "gallery_labels": {
+          "expand_image": "Expand image {n}",
+          "previous_image": "Previous image",
+          "next_image": "Next image",
+          "show_image": "Show image {n}",
+          "close_expanded_image": "Close image",
+          "expanded_view": "Expanded view",
+          "no_images": "No images"
+        }
+      },
+      "floating_actions": {
+        "back_to_top_label": "Back to top"
+      },
       "featured_portfolios": {
         "title": "Initial styles and highlights",
         "description": "These pages work as content scaffolding until final editorial copy and galleries are published in Prismic.",
@@ -120,6 +134,7 @@
       "empty_state": "Styles will appear here as soon as content is published."
     },
     "portfolio_detail": {
+      "works_title": "Works",
       "category_label": "Category",
       "booking_cta": "Request quote",
       "not_found_title": "Page not found",

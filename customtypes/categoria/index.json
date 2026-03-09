@@ -1,0 +1,50 @@
+{
+  "format": "custom",
+  "id": "categoria",
+  "label": "Categoria",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "type": "UID",
+        "config": {
+          "label": "Slug (URL)",
+          "placeholder": "ex: fine-line"
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Título",
+          "placeholder": "Título da categoria",
+          "useAsTitle": true
+        }
+      },
+      "page_description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Descrição da página",
+          "placeholder": "Descrição da categoria",
+          "allowTargetBlank": true,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Imagem de destaque",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "order": {
+        "type": "Number",
+        "config": {
+          "label": "Ordem",
+          "placeholder": "0"
+        }
+      }
+    }
+  }
+}

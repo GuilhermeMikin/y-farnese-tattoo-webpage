@@ -70,10 +70,24 @@ export interface LocaleMessages {
       trust: {
         cards: Array<{ title: string; description: string }>;
       };
+      floating_actions: {
+        back_to_top_label: string;
+      };
       featured_portfolios: {
         title: string;
         description: string;
         details_cta: string;
+      };
+      portfolio: {
+        gallery_labels: {
+          expand_image: string;
+          previous_image: string;
+          next_image: string;
+          show_image: string;
+          close_expanded_image: string;
+          expanded_view: string;
+          no_images: string;
+        };
       };
       contact_strip: {
         title: string;
@@ -100,6 +114,7 @@ export interface LocaleMessages {
     portfolio_detail: {
       category_label: string;
       booking_cta: string;
+      works_title: string;
       not_found_title: string;
       not_found_description: string;
       gallery_title: string;

@@ -44,10 +44,15 @@ const getSiteSettingsUncached = async (locale: SupportedLocale): Promise<SiteSet
   }
 
   try {
-    const document = (await client.getSingle(SITE_SETTINGS_TYPE, {
+    const response = await client.getByType(SITE_SETTINGS_TYPE, {
       lang: toPrismicLocale(locale),
-    })) as prismic.PrismicDocument<PrismicDocumentData>;
-    const data = (document.data ?? {}) as Record<string, unknown>;
+      pageSize: 1,
+    });
+    const document = response.results[0] as prismic.PrismicDocument<PrismicDocumentData> | undefined;
+    if (!document?.data) {
+      return fallback;
+    }
+    const data = document.data as Record<string, unknown>;
 
     return {
       ...fallback,

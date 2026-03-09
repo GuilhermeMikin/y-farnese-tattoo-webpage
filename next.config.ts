@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "images.prismic.io",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "yolandafarnese.cdn.prismic.io",
+        pathname: "/**",
+      },
     ],
   },
 };
